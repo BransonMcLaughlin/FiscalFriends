@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalFriendsWeb", "FiscalFriendsWeb\FiscalFriendsWeb.csproj", "{486FCA2F-6BB7-4B7D-A0E8-C6C2E3B0E257}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FiscalFriendsDB", "FiscalFriendsDB\FiscalFriendsDB.sqlproj", "{18A2FA60-9465-477C-B557-B3073BE40FBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{486FCA2F-6BB7-4B7D-A0E8-C6C2E3B0E257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{486FCA2F-6BB7-4B7D-A0E8-C6C2E3B0E257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{486FCA2F-6BB7-4B7D-A0E8-C6C2E3B0E257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{486FCA2F-6BB7-4B7D-A0E8-C6C2E3B0E257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18A2FA60-9465-477C-B557-B3073BE40FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A2FA60-9465-477C-B557-B3073BE40FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A2FA60-9465-477C-B557-B3073BE40FBE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{18A2FA60-9465-477C-B557-B3073BE40FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A2FA60-9465-477C-B557-B3073BE40FBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18A2FA60-9465-477C-B557-B3073BE40FBE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8CE7CB3-573F-4879-A095-C2EA52095840}
+	EndGlobalSection
+EndGlobal
