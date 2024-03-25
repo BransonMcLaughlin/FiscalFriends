@@ -1,6 +1,7 @@
 ﻿@page
-@model FiscalFriendsWeb.Pages.Account.IndexModel
+@model FiscalFriendsWeb.Pages.Account.Login
 @{
+    ViewData["Title"] = "Log In";
 }
 <div class="container">
     <form method="post">
@@ -17,8 +18,9 @@
     <div class="row m-2">
         <div class="col-2">
             <label class="form-label">Password</label>
-                <button id="btnLogin" class="btn-primary">Sign In</button>
+            <input type="password" class="form-control" />
         </div>
+            <button id="btnLogin" class="btn-primary">Sign In</button>
 
     </div>
    
