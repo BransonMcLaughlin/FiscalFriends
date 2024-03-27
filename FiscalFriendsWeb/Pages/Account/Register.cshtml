@@ -1,32 +1,124 @@
-﻿@page
+﻿﻿
+@page
 @model FiscalFriendsWeb.Pages.Account.Register
 @{
     ViewData["Title"] = "Register";
 }
 <form method="post">
+    <div class="row text-danger" asp-validation-summary="All"></div>
+    <!-- First Name Label-->
     <div class="row m-2">
         <div class="col-2">
-            
+
             <label asp-for="newUser.FirstName" class="form-label"></label>
         </div>
         <div class="col-10">
-            <input asp-for="newUser.FirstName" type="text" class="form-control"/>
+            <span asp-validation-for="newUser.FirstName" class="text-danger"></span>
+            <input asp-for="newUser.FirstName" type="text" class="form-control" />   
         </div>
     </div>
+    <!-- Last Name Label-->
     <div class="row m-2">
         <div class="col-2">
 
             <label asp-for="newUser.LastName" class="form-label"></label>
         </div>
         <div class="col-10">
+            <span asp-validation-for="newUser.LastName" class="text-danger"></span>
             <input asp-for="newUser.LastName" type="text" class="form-control" />
+            
         </div>
     </div>
+    <!-- Email Label-->
     <div class="row m-2">
         <div class="col-2">
 
-            <button id="btnRegister" class="btn btn-primary">Register</button>>
+            <label asp-for="newUser.Email" class="form-label"></label>
         </div>
-        
+        <div class="col-10">
+            <span asp-validation-for="newUser.Email" class="text-danger"></span>
+            <input asp-for="newUser.Email" type="text" class="form-control" />
+            
+        </div>
     </div>
-</form>
+    <!-- PhoneNumber Label-->
+    <div class="row m-2">
+        <div class="col-2">
+
+            <label asp-for="newUser.PhoneNumber" class="form-label"></label>
+        </div>
+        <div class="col-10">
+            <span asp-validation-for="newUser.PhoneNumber" class="text-danger"></span>
+            <input asp-for="newUser.PhoneNumber" type="text" class="form-control" />
+            
+        </div>
+    </div>
+    <!-- UserName Label-->
+    <div class="row m-2">
+        <div class="col-2">
+
+            <label asp-for="newUser.UserName" class="form-label"></label>
+        </div>
+        <div class="col-10">
+            <span asp-validation-for="newUser.UserName" class="text-danger"></span>
+            <input asp-for="newUser.UserName" type="text" class="form-control" />
+            
+        </div>
+    </div>
+    <!-- PassowrdHash Label-->
+    <div class="row m-2">
+        <div class="col-2">
+
+            <label asp-for="newUser.Password" class="form-label"></label>
+        </div>
+        <div class="col-10">
+            <span asp-validation-for="newUser.Password" class="text-danger"></span>
+            <input asp-for="newUser.Password" type="text" class="form-control" />
+            
+        </div>
+    </div>
+    <!-- ZipCode Label-->
+    <div class="row m-2">
+        <div class="col-2">
+
+            <label asp-for="newUser.ZipCode" class="form-label"></label>
+        </div>
+        <div class="col-10">
+            <span asp-validation-for="newUser.ZipCode" class="text-danger"></span>
+            <input asp-for="newUser.ZipCode" type="text" class="form-control" />
+            
+        </div>
+    </div>
+    <!-- Birthday Label-->
+    <div class="row m-2">
+        <div class="col-2">
+
+            <label asp-for="newUser.Birthday" class="form-label"></label>
+        </div>
+        <div class="col-10">
+            <span asp-validation-for="newUser.Birthday" class="text-danger"></span>
+            <input asp-for="newUser.Birthday" type="text" class="form-control" />
+            
+        </div>
+    </div>
+    <!-- PreferredLanguage Label-->
+    <div class="row m-2">
+        <div class="col-2">
+
+            <label asp-for="newUser.PreferredLanguage" class="form-label"></label>
+        </div>
+        <div class="col-10">
+            <span asp-validation-for="newUser.PreferredLanguage" class="text-danger"></span>
+            <input asp-for="newUser.PreferredLanguage" type="text" class="form-control" />
+            
+        </div>
+    </div>
+
+    <!-- Register Button-->
+    <div class="row m-2">
+        <div class="col-2">
+
+            <button id="btnRegister" class="btn btn-primary">Register</button>
+        </div>
+    </div>
+</form>     

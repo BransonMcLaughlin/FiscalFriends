@@ -3,26 +3,17 @@
 @{
     ViewData["Title"] = "Log In";
 }
-<div class="container">
-    <form method="post">
+<form method="post">
+    <div class="row text-danger" asp-validation-summary="All"></div>
+    <!-- First Name Label-->
     <div class="row m-2">
         <div class="col-2">
-            <label>Email</label>
 
+            <label asp-for="loginUser.Email" class="form-label"></label>
         </div>
         <div class="col-10">
-            <input type="email" class="form-control" />
+            <span asp-validation-for="loginUser.Email" class="text-danger"></span>
+            <input asp-for="loginUser.Email" type="text" class="form-control" />   
         </div>
-
     </div>
-    <div class="row m-2">
-        <div class="col-2">
-            <label class="form-label">Password</label>
-            <input type="password" class="form-control" />
-        </div>
-            <button id="btnLogin" class="btn-primary">Sign In</button>
-
-    </div>
-   
     </form>
-</div>
