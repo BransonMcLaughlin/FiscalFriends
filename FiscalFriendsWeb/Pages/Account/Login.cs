@@ -1,5 +1,5 @@
 using FiscalFriendsBusiness;
-using FiscalFriendsWeb.Pages.LoginModel;
+using FiscalFriendsWeb.Pages.UserModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
@@ -9,7 +9,7 @@ namespace FiscalFriendsWeb.Pages.Account
     public class Login : PageModel
     {
         [BindProperty]
-        public Login loginUser { get; set; }
+        public User loginUser { get; set; }
         //public Login() 
         //{
             
