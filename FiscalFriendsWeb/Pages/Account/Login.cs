@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 
-
 namespace FiscalFriendsWeb.Pages.Account
 {
     public class LoginModel : PageModel
@@ -13,14 +12,14 @@ namespace FiscalFriendsWeb.Pages.Account
         public Login loginUser { get; set; }
         //public Login() 
         //{
-            
+
         //}
         public void OnGet()
         {
 
         }
 
-        public ActionResult OnPost() 
+        public ActionResult OnPost()
         {
             if (ModelState.IsValid)
             {
@@ -35,7 +34,7 @@ namespace FiscalFriendsWeb.Pages.Account
                     if (!reader.IsDBNull(0))
                     {
                         string passwordHash = reader.GetString(0);
-                        if(SecurityHelper.VerifyPassword(loginUser.Password, passwordHash))
+                        if (SecurityHelper.VerifyPassword(loginUser.Password, passwordHash))
                         {
                             return RedirectToPage("Profile");
                         }
@@ -57,6 +56,6 @@ namespace FiscalFriendsWeb.Pages.Account
             {
                 return Page();
             }
-        }
-    }
-}
+        } // end ActionResult
+    } // end class 
+} // end namespace 

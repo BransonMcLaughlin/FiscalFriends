@@ -63,5 +63,6 @@ namespace FiscalFriendsWeb.Pages.UserModel
         public string Timezone { get; set; }
         public DateTime RegisterDate { get; set; }
 
+        public bool rememberMe { get; set; }
     }
 }

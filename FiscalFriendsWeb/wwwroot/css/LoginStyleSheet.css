@@ -1,0 +1,85 @@
+﻿/*
+    Login Style Sheet
+*/
+
+
+
+
+body {
+
+}
+
+.signInContainer {
+
+    background-image: url('../css/BackgroundImage1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+.signInBox {
+
+    background-color: lightgreen;
+    text-align:center;
+    border-radius: 8px;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    padding: 20px;
+
+}
+
+input[type=text], input[type=password] {
+
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-block: auto;
+    border: 1px solid #00ffff; /* Light Blue */
+    border-radius: 4px;
+
+}
+
+input[type="checkbox"] {
+
+    vertical-align: middle;
+    margin-right: 10px;
+
+}
+
+label[for="rememberMe"] {
+
+    vertical-align: middle;
+    display: inline-block;
+
+}
+.frmGroup {
+
+    margin-bottom: 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.btn-primary {
+
+    width: 100%;
+
+}
+
+.checkBoxContainer {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
