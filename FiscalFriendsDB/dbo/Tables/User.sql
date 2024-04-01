@@ -1,11 +1,16 @@
 ﻿CREATE TABLE [dbo].[User] (
-    [UserID]       INT           IDENTITY (1, 1) NOT NULL,
+    [PersonID]     INT           IDENTITY (1, 1) NOT NULL,
     [FirstName]    VARCHAR (30)  NOT NULL,
     [LastName]     VARCHAR (30)  NOT NULL,
-    [Email]        VARCHAR (20)  NOT NULL,
+    [Email]        VARCHAR (100) NOT NULL,
     [PhoneNumber]  VARCHAR (20)  NOT NULL,
     [UserName]     VARCHAR (12)  NOT NULL,
     [PasswordHash] VARCHAR (100) NOT NULL,
-    CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([UserID] ASC)
+    [LastLoggedIn] VARCHAR (100) NOT NULL,
+    [Birthday]     VARCHAR (50)  NOT NULL,
+    [AccountMade]  VARCHAR (50)  NOT NULL,
+    CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([PersonID] ASC)
 );
+
+
 
