@@ -33,7 +33,6 @@ namespace FiscalFriendsWeb.Pages.Account
                 cmd.Parameters.AddWithValue("@userName", newUser.UserName);
                 cmd.Parameters.AddWithValue("@lastLoggedIn", DateTime.Now.ToString());
                 cmd.Parameters.AddWithValue("@passwordhash", SecurityHelper.generatePasswordHash(newUser.Password));
-               // cmd.Parameters.AddWithValue("@zipcode", newUser.ZipCode);
                 cmd.Parameters.AddWithValue("@birthday", newUser.Birthday);
                 cmd.Parameters.AddWithValue("@accountMade", DateTime.Now.ToString());
 
