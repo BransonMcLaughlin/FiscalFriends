@@ -67,6 +67,7 @@
     <Build Include="dbo\Tables\User.sql" />
     <Build Include="dbo\Tables\Budget.sql" />
     <Build Include="dbo\Tables\Debt.sql" />
+    <Build Include="dbo\Tables\LoginTable.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment1.sql" />
