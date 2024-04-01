@@ -23,10 +23,11 @@ namespace FiscalFriendsWeb.Pages.Account
         {
             if (ModelState.IsValid)
             {
-                SqlConnection con = new SqlConnection(SecurityHelper.GetDBConnectionString());
-                String cmdText = "SELECT Password, FirstName, LastName FROM Person WHERE Email=@email";
-                SqlCommand cmd = new SqlCommand(cmdText, con);
-                con.Open();
+                SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString());
+                String cmdText = "SELECT PasswordHash FROM [User] WHERE Email=@email;";
+                SqlCommand cmd = new SqlCommand(cmdText, conn);
+                cmd.Parameters.AddWithValue("@Email", loginUser.Email);
+                conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -49,7 +50,7 @@ namespace FiscalFriendsWeb.Pages.Account
                 {
                     ModelState.AddModelError("LoginError", "Invalid credentails. Try again.");
                 }
-                con.Close();
+                conn.Close();
                 return RedirectToPage();
             }
             else
