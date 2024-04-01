@@ -37,15 +37,10 @@ namespace FiscalFriendsWeb.Pages.UserModel
         [Display(Name = "Password: ")]
         public string Password { get; set; }
 
-        // ZipCode
-        [Required(ErrorMessage = "A Zipcode is required.")]
-        [Display(Name = "Zipcode: ")]
-        public string ZipCode { get; set; }
-
         // Birthday
        
         public DateOnly Birthday { get; set; }
-        public DateTime AccountMadeDate { get; set; }
+        public DateTime AccountMade { get; set; }
         public DateTime LastLoggedIn { get; set; }
 
        // public string ProfilePicture { get; set; }
