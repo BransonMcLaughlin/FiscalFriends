@@ -16,7 +16,7 @@ namespace FiscalFriendsBusiness
 
         public static String GetDBConnectionString()
         {
-            string conString = "Serve = (localdb)\\MSSQLLocalDB;Database=FiscalFriends;Trusted_Connection=true";
+            string conString = "Server = (localdb)\\MSSQLLocalDB;Database=FiscalFriends;Trusted_Connection=true";
             return conString;
 
         }

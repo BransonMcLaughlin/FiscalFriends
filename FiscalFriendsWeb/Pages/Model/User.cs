@@ -24,8 +24,7 @@ namespace FiscalFriendsWeb.Pages.UserModel
         public string Email { get; set; }
 
         // Phone Number
-        [Required(ErrorMessage = "A Phone Number is required.")]
-        [Display(Name = "Phone Number: ")]
+       
         public int PhoneNumber { get; set; }
 
         // UserName
@@ -44,13 +43,12 @@ namespace FiscalFriendsWeb.Pages.UserModel
         public string ZipCode { get; set; }
 
         // Birthday
-        [Required(ErrorMessage = "A Birthday is required.")]
-        [Display(Name = "Birthday: ")]
+       
         public DateOnly Birthday { get; set; }
         public DateTime AccountMadeDate { get; set; }
         public DateTime LastLoggedIn { get; set; }
 
-        public string ProfilePicture { get; set; }
+       // public string ProfilePicture { get; set; }
 
         // Preferred Language
         [Required(ErrorMessage = "A Preferred Language is required.")]
@@ -58,9 +56,8 @@ namespace FiscalFriendsWeb.Pages.UserModel
         public string PreferredLanguage { get; set; }
 
         // Timezone
-        [Required(ErrorMessage = "A Timezone is required.")]
-        [Display(Name = "Timezone: ")]
-        public string Timezone { get; set; }
+       
+        // public string Timezone { get; set; }
         public DateTime RegisterDate { get; set; }
 
     }
