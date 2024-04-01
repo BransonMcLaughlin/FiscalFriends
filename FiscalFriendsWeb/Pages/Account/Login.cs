@@ -24,9 +24,9 @@ namespace FiscalFriendsWeb.Pages.Account
             if (ModelState.IsValid)
             {
                 SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString());
-                String cmdText = "SELECT PasswordHash FROM [User] WHERE Email=@email;";
+                String cmdText = "SELECT PasswordHash FROM [User] WHERE Username=@username;";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
-                cmd.Parameters.AddWithValue("@Email", loginUser.Email);
+                cmd.Parameters.AddWithValue("@username", loginUser.Username);
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)

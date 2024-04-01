@@ -15,22 +15,23 @@
     <!-- Username Label -->
     <!-- Don't forget to change email to .Username after configuration. -->
     <div class="frmGroup">
-    <label asp-for="loginUser.Email" class="form-label"></label>
-    <input asp-for="loginUser.Email" type="text" class="form-control" placeholder="email" />
-    <span asp-validation-for="loginUser.Email" class="text-danger"></span>
+    <label asp-for="loginUser.Username" class="form-label"></label>
+            <input asp-for="loginUser.Username" type="text" class="form-control" placeholder="username" />
+            <span asp-validation-for="loginUser.Username" class="text-danger"></span>
 
     <!-- Password Label -->
     <label asp-for="loginUser.Password" class="form-label"></label>
     <input asp-for="loginUser.Password" type="password" class="form-control" placeholder="password"/>
     <span asp-validation-for="loginUser.Password" class="text-danger"></span>
 
-    <!-- RememberMe CheckBox-->
+    <!-- RememberMe CheckBox
     <div class="checkBoxContainer">
     <input type="checkbox" id="rememberMe" name="rememberMe" />
     <label asp-for="loginUser.rememberMe">Remember Me</label>
     <br>
     <br>
     </div>
+    -->
 
     <!-- Sign-In Button-->
     <div class"frmGroup">
