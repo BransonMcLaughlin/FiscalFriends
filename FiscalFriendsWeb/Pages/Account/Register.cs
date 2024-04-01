@@ -23,8 +23,8 @@ namespace FiscalFriendsWeb.Pages.Account
                // string conString = "Serve = (localdb)\\MSSQLLocalDB;Database=FiscalFriends;Trusted_Connection=true";
                 SqlConnection con = new SqlConnection(SecurityHelper.GetDBConnectionString());
                 //2. Create a insert command
-                string cmdText = "INSERT INTO user(FirstName, LastName, Email, PhoneNumber, UserName, Password, ZipCode, Birthday, AccountMadeDate, LastLoggedIn)" +
-                                          "VALUES(@firstName, @lastName, @email, @phoneNumber, @userName, @password, @zipcode, @birthday, @accountMadeDate, @lastLoggedIn)";
+                string cmdText = "INSERT INTO [user](FirstName, LastName, Email, PhoneNumber, UserName, PasswordHash, Birthday, AccountMade, LastLoggedIn)" +
+                                          "VALUES(@firstName, @lastName, @email, @phoneNumber, @userName, @passwordhash, @birthday, @accountMade, @lastLoggedIn)";
                 SqlCommand cmd = new SqlCommand(cmdText, con);
                 cmd.Parameters.AddWithValue("@firstName", newUser.FirstName);
                 cmd.Parameters.AddWithValue("@lastName", newUser.LastName);
@@ -32,10 +32,10 @@ namespace FiscalFriendsWeb.Pages.Account
                 cmd.Parameters.AddWithValue("@phoneNumber", newUser.PhoneNumber);
                 cmd.Parameters.AddWithValue("@userName", newUser.UserName);
                 cmd.Parameters.AddWithValue("@lastLoggedIn", DateTime.Now.ToString());
-                cmd.Parameters.AddWithValue("@password", SecurityHelper.generatePasswordHash(newUser.Password));
-                cmd.Parameters.AddWithValue("@zipcode", newUser.ZipCode);
+                cmd.Parameters.AddWithValue("@passwordhash", SecurityHelper.generatePasswordHash(newUser.Password));
+               // cmd.Parameters.AddWithValue("@zipcode", newUser.ZipCode);
                 cmd.Parameters.AddWithValue("@birthday", newUser.Birthday);
-                cmd.Parameters.AddWithValue("@accountMadeDate", DateTime.Now.ToString());
+                cmd.Parameters.AddWithValue("@accountMade", DateTime.Now.ToString());
 
 
                 //3. open the database
