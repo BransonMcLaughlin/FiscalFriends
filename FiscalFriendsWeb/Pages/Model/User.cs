@@ -25,7 +25,7 @@ namespace FiscalFriendsWeb.Pages.UserModel
 
         // Phone Number
        
-        public int PhoneNumber { get; set; }
+        public int? PhoneNumber { get; set; }
 
         // UserName
         [Required(ErrorMessage = "A Username is required.")]
