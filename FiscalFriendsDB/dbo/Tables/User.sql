@@ -7,10 +7,12 @@
     [UserName]     VARCHAR (12)  NOT NULL,
     [PasswordHash] VARCHAR (100) NOT NULL,
     [LastLoggedIn] VARCHAR (100) NOT NULL,
-    [Birthday]     VARCHAR (50)  NOT NULL,
-    [AccountMade]  VARCHAR (50)  NOT NULL,
+    [Birthday]     DATE          NOT NULL,
+    [AccountMade]  DATE          NOT NULL,
     CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([PersonID] ASC)
 );
+
+
 
 
 
