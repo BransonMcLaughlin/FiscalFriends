@@ -21,10 +21,10 @@ namespace FiscalFriendsWeb.Pages.Account
             if (ModelState.IsValid)
             {
                 // check login credentials
-                if(ValidateCredentials())
+                if (ValidateCredentials())
                 {
                     //if the credentials are valid redirect user to profile
-                    return RedirectToPage("Profile");
+                    return RedirectToPage("Profile", new { loginUser });
                 }
                 else
                 {
@@ -80,10 +80,10 @@ namespace FiscalFriendsWeb.Pages.Account
 
         private void UpdatePersonLogInTime(int personId)
         {
-            using(SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
+            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
                 string cmdText = "UPDATE [User] Set LastLoggedIn=@LastLoggedIn WHERE PersonId=@personId";
-                SqlCommand cmd = new SqlCommand( cmdText, conn);
+                SqlCommand cmd = new SqlCommand(cmdText, conn);
                 cmd.Parameters.AddWithValue("@LastLoggedIn", DateTime.Now);
                 cmd.Parameters.AddWithValue("@personId", personId);
                 conn.Open();
