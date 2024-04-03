@@ -18,6 +18,44 @@ namespace FiscalFriendsWeb.Pages.Account
         {
             if (ModelState.IsValid)
             {
+                if(!EmailExists(newUser.Email))
+                {
+                    RegisterUser();
+                    return RedirectToPage("Login");
+                }
+                else
+                {
+                    ModelState.AddModelError("RegisterError", "The Email address already exists! Try a different one.");
+                    return Page();
+                }
+            }
+            return Page();
+        }
+
+        private bool EmailExists(String email)
+        {
+            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
+            {
+                string cmdText = "SELECT * FROM [User] WHERE Email=@email";
+                SqlCommand cmd = new SqlCommand(cmdText, conn);
+                cmd.Parameters.AddWithValue("@email", email);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        private void RegisterUser()
+        {
+            using(SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
+            {
                 //Make sure the email does not exist before registering the user
 
                 if (EmailDNE(newUser.Email))
@@ -43,6 +81,8 @@ namespace FiscalFriendsWeb.Pages.Account
             using (SqlConnection con = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
                 string cmdText = "INSERT INTO [user](FirstName, LastName, Email, PhoneNumber, UserName, PasswordHash, Birthday, AccountMade, LastLoggedIn)" +
+                                          "VALUES(@firstName, @lastName, @email, @phoneNumber, @userName, @passwordhash, @birthday, @accountMade, @lastLoggedIn)";
+                SqlCommand cmd = new SqlCommand(cmdText, conn);
                                          "VALUES(@firstName, @lastName, @email, @phoneNumber, @userName, @passwordhash, @birthday, @accountMade, @lastLoggedIn)";
                 SqlCommand cmd = new SqlCommand(cmdText, con);
                 cmd.Parameters.AddWithValue("@firstName", newUser.FirstName);
@@ -54,10 +94,14 @@ namespace FiscalFriendsWeb.Pages.Account
                 cmd.Parameters.AddWithValue("@passwordhash", SecurityHelper.generatePasswordHash(newUser.Password));
                 cmd.Parameters.AddWithValue("@birthday", newUser.Birthday);
                 cmd.Parameters.AddWithValue("@accountMade", DateTime.Now.ToString());
+                //3. open the database
+                conn.Open();
                 con.Open();
-                //4. execute the command
-                cmd.ExecuteNonQuery();
-
+                //3. open the database
+                con.Open();
+                //3. open the database
+                con.Open();
+                //3. open the database
                
 
             }
@@ -81,6 +125,14 @@ namespace FiscalFriendsWeb.Pages.Account
                     return true;
                 }
             }
+        }
+    }
+       
+    }
+        }
+    }
+        }
+    }
         }
     }
 }

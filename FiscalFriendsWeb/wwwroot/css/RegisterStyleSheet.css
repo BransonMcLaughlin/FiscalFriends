@@ -1,15 +1,17 @@
 ﻿/*
-    Login Style Sheet
+    Registration Style Sheet
 */
-
+    
 
 body {
-
 }
+
+/* This is the green box layout, but it does not include if the user gets the -missing info warning-, 
+    need to make a seperate box setting for that.*/
 
 .signInContainer {
 
-    background-image: url('../css/LoginImage.jpg');
+    background-image: url('../css/RegistrationImage.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -20,64 +22,50 @@ body {
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-
 }
 
 .signInBox {
-
     background-color: lightgreen;
-    text-align:center;
+    text-align: center;
     border-radius: 8px;
     width: 500px;
-    height: 600px;
+    height: 1000px;
     margin: auto;
     padding: 20px;
-
 }
 
 input[type=text], input[type=password] {
-
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     margin-block: auto;
     border: 1px solid #00ffff; /* Light Blue */
     border-radius: 4px;
-
 }
 
 input[type="checkbox"] {
-
     vertical-align: middle;
     margin-right: 10px;
-
 }
 
 label[for="rememberMe"] {
-
     vertical-align: middle;
     display: inline-block;
-
 }
-.frmGroup {
 
+.frmGroup {
     margin-bottom: 15px;
     text-align: left;
     display: flex;
     flex-direction: column;
-
 }
 
 .btn-primary {
-
     width: 100%;
-
 }
 
 .checkBoxContainer {
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
 }
