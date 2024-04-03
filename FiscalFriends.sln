@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalFriendsWeb", "FiscalF
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FiscalFriendsDB", "FiscalFriendsDB\FiscalFriendsDB.sqlproj", "{18A2FA60-9465-477C-B557-B3073BE40FBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalFriendsBusiness", "FiscalFriendsBusiness\FiscalFriendsBusiness.csproj", "{14652ADA-A160-47D6-8514-496E175157C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalFriendsBusiness", "FiscalFriendsBusiness\FiscalFriendsBusiness.csproj", "{14652ADA-A160-47D6-8514-496E175157C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
