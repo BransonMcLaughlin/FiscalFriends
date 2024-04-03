@@ -1,9 +1,8 @@
 using FiscalFriendsBusiness;
-using  FiscalFriendsWeb.Pages.LoginModel;
+using FiscalFriendsWeb.Pages.LoginModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
-using System.Diagnostics.Eventing.Reader;
 
 namespace FiscalFriendsWeb.Pages.Account
 {
@@ -11,10 +10,7 @@ namespace FiscalFriendsWeb.Pages.Account
     {
         [BindProperty]
         public Login loginUser { get; set; }
-        //public Login() 
-        //{
 
-        //}
         public void OnGet()
         {
 
@@ -27,32 +23,28 @@ namespace FiscalFriendsWeb.Pages.Account
                 // check login credentials
                 if (ValidateCredentials())
                 {
+                    //if the credentials are valid redirect user to profile
                     return RedirectToPage("Profile");
                 }
                 else
                 {
+                    //else, display error
                     ModelState.AddModelError("LoginError", "Invalid Credentials, Try again.");
                     return Page();
                 }
-                // if the credentials are valid 
-                // redirect user to Profile Page
-                // O.W, display error
-               
 
             }
             else
             {
                 return Page();
             }
-
-
         } // end ActionResult
 
         private bool ValidateCredentials()
         {
-            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString())) 
-                {
-                String cmdText = "SELECT PasswordHash, PersonID FROM [User] WHERE Username=@username;";
+            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
+            {
+                String cmdText = "SELECT PasswordHash,PersonID FROM [User] WHERE Username=@username;";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
                 cmd.Parameters.AddWithValue("@username", loginUser.Username);
                 conn.Open();
@@ -65,43 +57,37 @@ namespace FiscalFriendsWeb.Pages.Account
                         string passwordHash = reader.GetString(0);
                         if (SecurityHelper.VerifyPassword(loginUser.Password, passwordHash))
                         {
-                            // Get the personID and use it to update the person record
-                            int personID = reader.GetInt32(1);
-                            UpdatePersonLoginTime(personID);
+                            int personId = reader.GetInt32(1);
+                            UpdatePersonLogInTime(personId);
                             return true;
                         }
                         else
                         {
-
                             return false;
                         }
                     }
-
                     else
                     {
                         return false;
                     }
-                   
                 }
                 else
                 {
                     return false;
                 }
-                
-
             }
         }
 
-        private void UpdatePersonLoginTime(int personID)
+        private void UpdatePersonLogInTime(int personId)
         {
-            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString())
+            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
-             string cmdText = "UPDATE Person SET LastLoginTime=@LastLoginTime WHERE PersonId=@personID;";
-            SqlCommand cmd = new SqlCommand(cmdText, conn);
-            cmd.Parameters.AddWithValue("@LastLoginTime", DateTime.Now);
-            cmd.Parameters.AddWithValue("@personId", personID);
-            conn.Open();
-            cmd.ExecuteNonQuery();
+                string cmdText = "UPDATE [User] Set LastLoggedIn=@LastLoggedIn WHERE PersonId=@personId";
+                SqlCommand cmd = new SqlCommand(cmdText, conn);
+                cmd.Parameters.AddWithValue("@LastLoggedIn", DateTime.Now);
+                cmd.Parameters.AddWithValue("@personId", personId);
+                conn.Open();
+                cmd.ExecuteNonQuery();
             }
         }
     } // end class 
