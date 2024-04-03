@@ -24,7 +24,7 @@ namespace FiscalFriendsWeb.Pages.Account
                 if (ValidateCredentials())
                 {
                     //if the credentials are valid redirect user to profile
-                    return RedirectToPage("Profile");
+                    return RedirectToPage("Profile", new { loginUser });
                 }
                 else
                 {
