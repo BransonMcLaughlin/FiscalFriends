@@ -56,9 +56,35 @@ namespace FiscalFriendsWeb.Pages.Account
         {
             using(SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
+                //Make sure the email does not exist before registering the user
+
+                if (EmailDNE(newUser.Email))
+                {
+                    RegisterUser();
+                    return RedirectToPage("Login");
+                }
+                else
+                {
+                    ModelState.AddModelError("RegisterError", "The email address already exist. Try a different one.");
+                    return Page();
+                }
+                
+            }
+            else
+            {
+                return Page();
+            }
+        }
+
+        private void RegisterUser()
+        {
+            using (SqlConnection con = new SqlConnection(SecurityHelper.GetDBConnectionString()))
+            {
                 string cmdText = "INSERT INTO [user](FirstName, LastName, Email, PhoneNumber, UserName, PasswordHash, Birthday, AccountMade, LastLoggedIn)" +
                                           "VALUES(@firstName, @lastName, @email, @phoneNumber, @userName, @passwordhash, @birthday, @accountMade, @lastLoggedIn)";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
+                                         "VALUES(@firstName, @lastName, @email, @phoneNumber, @userName, @passwordhash, @birthday, @accountMade, @lastLoggedIn)";
+                SqlCommand cmd = new SqlCommand(cmdText, con);
                 cmd.Parameters.AddWithValue("@firstName", newUser.FirstName);
                 cmd.Parameters.AddWithValue("@lastName", newUser.LastName);
                 cmd.Parameters.AddWithValue("@email", newUser.Email);
@@ -70,11 +96,43 @@ namespace FiscalFriendsWeb.Pages.Account
                 cmd.Parameters.AddWithValue("@accountMade", DateTime.Now.ToString());
                 //3. open the database
                 conn.Open();
-                //4. execute the command
-                cmd.ExecuteNonQuery();
+                con.Open();
+                //3. open the database
+                con.Open();
+                //3. open the database
+                con.Open();
+                //3. open the database
+               
+
             }
         }
 
+        private bool EmailDNE(string email)
+        {
+            using(SqlConnection conn = new SqlConnection (SecurityHelper.GetDBConnectionString()))
+            {
+                string cmdText = "SELECT * FROM [User] WHERE Email=@email";
+                SqlCommand cmd = new SqlCommand(cmdText, conn);
+                cmd.Parameters.AddWithValue("@email", email);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+    }
        
+    }
+        }
+    }
+        }
+    }
+        }
     }
 }
