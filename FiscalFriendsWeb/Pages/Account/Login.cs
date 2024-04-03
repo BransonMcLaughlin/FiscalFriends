@@ -3,6 +3,7 @@ using  FiscalFriendsWeb.Pages.LoginModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 
 namespace FiscalFriendsWeb.Pages.Account
 {
@@ -23,8 +24,35 @@ namespace FiscalFriendsWeb.Pages.Account
         {
             if (ModelState.IsValid)
             {
-                SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString());
-                String cmdText = "SELECT PasswordHash FROM [User] WHERE Username=@username;";
+                // check login credentials
+                if (ValidateCredentials())
+                {
+                    return RedirectToPage("Profile");
+                }
+                else
+                {
+                    ModelState.AddModelError("LoginError", "Invalid Credentials, Try again.");
+                    return Page();
+                }
+                // if the credentials are valid 
+                // redirect user to Profile Page
+                // O.W, display error
+               
+
+            }
+            else
+            {
+                return Page();
+            }
+
+
+        } // end ActionResult
+
+        private bool ValidateCredentials()
+        {
+            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString())) 
+                {
+                String cmdText = "SELECT PasswordHash, PersonID FROM [User] WHERE Username=@username;";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
                 cmd.Parameters.AddWithValue("@username", loginUser.Username);
                 conn.Open();
@@ -37,26 +65,44 @@ namespace FiscalFriendsWeb.Pages.Account
                         string passwordHash = reader.GetString(0);
                         if (SecurityHelper.VerifyPassword(loginUser.Password, passwordHash))
                         {
-                            return RedirectToPage("Profile");
+                            // Get the personID and use it to update the person record
+                            int personID = reader.GetInt32(1);
+                            UpdatePersonLoginTime(personID);
+                            return true;
                         }
                         else
                         {
-                            ModelState.AddModelError("LoginError", "Invalid Credentials, Try again.");
-                            return Page();
+
+                            return false;
                         }
                     }
+
+                    else
+                    {
+                        return false;
+                    }
+                   
                 }
                 else
                 {
-                    ModelState.AddModelError("LoginError", "Invalid credentails. Try again.");
+                    return false;
                 }
-                conn.Close();
-                return RedirectToPage();
+                
+
             }
-            else
+        }
+
+        private void UpdatePersonLoginTime(int personID)
+        {
+            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString())
             {
-                return Page();
+             string cmdText = "UPDATE Person SET LastLoginTime=@LastLoginTime WHERE PersonId=@personID;";
+            SqlCommand cmd = new SqlCommand(cmdText, conn);
+            cmd.Parameters.AddWithValue("@LastLoginTime", DateTime.Now);
+            cmd.Parameters.AddWithValue("@personId", personID);
+            conn.Open();
+            cmd.ExecuteNonQuery();
             }
-        } // end ActionResult
+        }
     } // end class 
 } // end namespace 

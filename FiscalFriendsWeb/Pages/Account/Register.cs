@@ -18,13 +18,32 @@ namespace FiscalFriendsWeb.Pages.Account
         {
             if (ModelState.IsValid)
             {
-                //insert data into dataBase
-                //1. Create a database connection string
-               // string conString = "Serve = (localdb)\\MSSQLLocalDB;Database=FiscalFriends;Trusted_Connection=true";
-                SqlConnection con = new SqlConnection(SecurityHelper.GetDBConnectionString());
-                //2. Create a insert command
+                //Make sure the email does not exist before registering the user
+
+                if (EmailDNE(newUser.Email))
+                {
+                    RegisterUser();
+                    return RedirectToPage("Login");
+                }
+                else
+                {
+                    ModelState.AddModelError("RegisterError", "The email address already exist. Try a different one.");
+                    return Page();
+                }
+                
+            }
+            else
+            {
+                return Page();
+            }
+        }
+
+        private void RegisterUser()
+        {
+            using (SqlConnection con = new SqlConnection(SecurityHelper.GetDBConnectionString()))
+            {
                 string cmdText = "INSERT INTO [user](FirstName, LastName, Email, PhoneNumber, UserName, PasswordHash, Birthday, AccountMade, LastLoggedIn)" +
-                                          "VALUES(@firstName, @lastName, @email, @phoneNumber, @userName, @passwordhash, @birthday, @accountMade, @lastLoggedIn)";
+                                         "VALUES(@firstName, @lastName, @email, @phoneNumber, @userName, @passwordhash, @birthday, @accountMade, @lastLoggedIn)";
                 SqlCommand cmd = new SqlCommand(cmdText, con);
                 cmd.Parameters.AddWithValue("@firstName", newUser.FirstName);
                 cmd.Parameters.AddWithValue("@lastName", newUser.LastName);
@@ -35,19 +54,33 @@ namespace FiscalFriendsWeb.Pages.Account
                 cmd.Parameters.AddWithValue("@passwordhash", SecurityHelper.generatePasswordHash(newUser.Password));
                 cmd.Parameters.AddWithValue("@birthday", newUser.Birthday);
                 cmd.Parameters.AddWithValue("@accountMade", DateTime.Now.ToString());
-
-
-                //3. open the database
                 con.Open();
                 //4. execute the command
                 cmd.ExecuteNonQuery();
 
-                //5. close the database
-                con.Close();
-                return RedirectToPage("Login");
+               
 
             }
-            return Page();
+        }
+
+        private bool EmailDNE(string email)
+        {
+            using(SqlConnection conn = new SqlConnection (SecurityHelper.GetDBConnectionString()))
+            {
+                string cmdText = "SELECT * FROM [User] WHERE Email=@email";
+                SqlCommand cmd = new SqlCommand(cmdText, conn);
+                cmd.Parameters.AddWithValue("@email", email);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
     }
 }
