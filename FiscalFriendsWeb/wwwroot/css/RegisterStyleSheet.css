@@ -71,3 +71,9 @@ label[for="rememberMe"] {
     font-size: 0.75rem;
 
 }
+
+.already-a-user {
+
+    padding: 0.5rem 2rem;
+    margin: auto;
+}

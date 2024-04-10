@@ -42,11 +42,14 @@ button.accept-policy {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
+  background: #FFFFFF;
   bottom: 0;
   width: 100%;
+  height: 2.5rem;
   white-space: nowrap;
   line-height: 60px;
+  margin: auto;
 }
 
 /* CSS for the header */
@@ -106,7 +109,7 @@ button.accept-policy {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    position: absolute;
+    position: absolute; 
     top: 20px;
     right: 210px;
     text-align: left;
