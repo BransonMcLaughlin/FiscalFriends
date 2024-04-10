@@ -9,7 +9,6 @@
 <form method="post" class="signInBox">
     <h2> Hello there! </h2>
     <p> We're thrilled to welcome you to FiscalFriends. Sign up today and discover how we can achieve our financial goals together!'</p>
-    <div class="row text-danger" asp-validation-summary="All"></div>
 
     <!-- Registration Box -->
 
@@ -28,7 +27,7 @@
             <input asp-for="newUser.Email" type="text" class="form-control" placeholder="email"/>
             <span asp-validation-for="newUser.Email" class="text-danger"></span>        
     <!-- PhoneNumber Label -->
-            <label asp-for="newUser.PhoneNumber" class="form-label"></label>
+            <label asp-for="newUser.PhoneNumber" class="form-label"> Phone Number:</label>
             <input asp-for="newUser.PhoneNumber" type="text" class="form-control" placeholder="phonenumber"/>
             <span asp-validation-for="newUser.PhoneNumber" class="text-danger"></span>
             <p class=" data-rates-message"> Message and data rates may apply.</p>
@@ -62,9 +61,9 @@
 
             <br />
             <br />
-
-            Already a User? <a href="/alreadyAUserLink">Sign in here.</a>
-
+            <div class="already-a-user">
+                    Already a User? <a href="/Account/Login">Sign in here.</a>
+                </div>
         </div>
     </form>
     </div>
