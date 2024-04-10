@@ -4,45 +4,109 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FiscalFriendsWeb</title>
+     
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/FiscalFriendsWeb.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FiscalFriendsWeb.styles.css" asp-append-version="true" /> <!-- Site Info -->
+    <link rel="stylesheet" href="~/js/site.js" />
+    <!-- Temporary Solution for language dropdown -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <!-- Removing for now |||| <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> -->
     
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">FiscalFriendsWeb</a>
+            <div class="container flex-container">
+                <div class="header-logo-top">
+                <!-- FiscalFriends Logo -->
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/css/FiscalFriendsLogo.jpg" alt="FiscalFriends Logo" height="120">
+                </a>
+                <div class="blue-box"></div>
+                </div>
+                <!-- Navigation Links -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <!-- Webpage headers -->
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Subscriptions</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Goals</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Account/Login">Log In</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Daily Expenses</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Account/Register">Register</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Debt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Investments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Credit</a>
                         </li>
                     </ul>
+                </div>
+                <!-- Top right interactions -->
+                <div class="top-right-interactions">
+                    <a href="/Customer Support">Customer Service</a>
+                    <a href="AboutUs">About Us</a>
+                    <!-- Language dropdown -->
+                    <a href="/Language">English</a>
+                    <div class="dropdown">
+
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language
+                            <span id="currentLanguage">English</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                            <a class="dropdown-item" href="#">English</a>
+                            <a class="dropdown-item" href="#">Spanish</a>
+                            <a class="dropdown-item" href="#">Vietnamese</a>
+                            <a class="dropdown-item" href="#">Chinese</a>
+                            <a class="dropdown-item" href="#">Arabic</a>
+                            <a class="dropdown-item" href="#">Portuguese</a>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </nav>
     </header>
+ 
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+    <!-- TEMPORARY -->
+    <div class="temp-solution">
+        <div>Temp navigation links</div>
+                <!-- Placing these elsewhere to better fit page structure (TEMPORARY) -->
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Account/Login">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Account/Register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                </li>
+                </ul>
+    </div>
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - FiscalFriendsWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>
@@ -54,5 +118,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+
 </body>
 </html>
