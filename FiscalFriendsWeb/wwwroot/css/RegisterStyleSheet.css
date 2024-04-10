@@ -69,3 +69,9 @@ label[for="rememberMe"] {
     justify-content: flex-start;
     align-items: center;
 }
+
+.data-rates-message {
+
+    font-size: 0.75rem;
+
+}
