@@ -14,5 +14,8 @@ namespace FiscalFriendsWeb.Pages.LoginModel
         public String Password { get; set; }    
         
         public bool rememberMe { get; set; }
+
+        [Required]
+        public string Email {  get; set; }
     }
 }

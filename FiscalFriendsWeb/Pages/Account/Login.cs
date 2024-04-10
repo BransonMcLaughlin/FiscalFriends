@@ -1,8 +1,13 @@
 using FiscalFriendsBusiness;
 using FiscalFriendsWeb.Pages.LoginModel;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
+using System.Reflection.PortableExecutable;
+using System.Security.Claims;
+using System.Security.Cryptography.Xml;
 
 namespace FiscalFriendsWeb.Pages.Account
 {
@@ -23,6 +28,7 @@ namespace FiscalFriendsWeb.Pages.Account
                 // check login credentials
                 if(ValidateCredentials())
                 {
+                    
                     //if the credentials are valid redirect user to profile
                     return RedirectToPage("Profile");
                 }
@@ -44,7 +50,8 @@ namespace FiscalFriendsWeb.Pages.Account
         {
             using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
-                String cmdText = "SELECT PasswordHash,PersonID FROM [User] WHERE Username=@username;";
+                String cmdText = "SELECT PasswordHash, PersonID, FirstName, Email " + 
+                    " FROM [User] WHERE Username=@username;";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
                 cmd.Parameters.AddWithValue("@username", loginUser.Username);
                 conn.Open();
@@ -59,6 +66,27 @@ namespace FiscalFriendsWeb.Pages.Account
                         {
                             int personId = reader.GetInt32(1);
                             UpdatePersonLogInTime(personId);
+
+                            //Create a principal
+                            string name = reader.GetString(2);
+                            string username = reader.GetString(4);
+                            string email = reader.GetString(5);
+                            
+
+                            Claim emailClaim = new Claim(ClaimTypes.Email, loginUser.Email);
+
+                            List<Claim> claims = new List<Claim> { emailClaim };
+
+                            //Add the list of claims to a ClaimsIdentity
+                            ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                            //Add the identity to a claims Principal
+                            ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+
+                            //4. Call HttpContext.SigninAsync() method to encrypt
+                            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+
                             return true;
                         }
                         else

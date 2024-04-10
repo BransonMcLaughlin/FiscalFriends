@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+
 namespace FiscalFriendsWeb.Pages.ProfileModel
 {
     public class Profile
     {
         
         // need to create an instance of class Profile here !!!!!!
+        public Profile UserProfile { get; set; }
 
         // First Name
         [Required(ErrorMessage = "A First Name is required.")]

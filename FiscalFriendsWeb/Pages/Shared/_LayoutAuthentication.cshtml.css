@@ -1,0 +1,161 @@
+﻿/*
+
+    Header & Home Page Style Sheet
+
+*/
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a {
+  color: #0077cc;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+/* CSS for the header */
+
+.header-logo-top {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.blue-box {
+    background-color: lightblue;
+    height: 100px;
+    flex-grow: 1;
+    margin-left: 20px;
+    margin-right: auto;
+}
+
+.navbar-collapse {
+    width: 100%;
+    margin-left: 200px;
+    margin-top: -10px;
+    width: auto;
+}
+
+.container.flex-container {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: 'Times New Roman', Times, serif
+    
+}
+
+.navbar-nav {
+    display: flex;
+    padding-left: 0;
+    margin-left: 0;
+    width: auto;
+    justify-content: space-between;
+    flex-grow: 0;
+
+}
+
+    .navbar-nav .nav-item {
+        margin-right: 20px;
+    }
+
+/* 
+    Top right side interactions 
+    Language | Customer Service | About Us ) 
+*/
+
+.top-right-interactions {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    top: 20px;
+    right: 210px;
+    text-align: left;
+
+}
+
+.top-right-interactions a {
+
+    color: black;
+    text-decoration: none;
+    padding: 0.3rem 1rem;
+    font-size: 10px;
+
+}
+
+.top-right-interactions button:focus,
+.top-right-interactions .btn:focus,
+.top-right-interactions .btn:active {
+     outline: none !important;
+     box-shadow: none !important;
+
+}
+.top-right-interactions .dropdown-toggle {
+
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: black;
+    padding: 0.3rem 1rem;
+    font-size: 10px;
+    line-height: 1.5px;
+    
+
+}
+
+/* Removing Later */
+.temp-solution {
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    margin-left: 400px;
+    margin-right: 0px;
+}
+
+.temp-solution > ul {
+
+    padding-left: 0;
+    list-style-type: none;
+
+}
