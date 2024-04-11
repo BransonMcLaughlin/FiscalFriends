@@ -24,7 +24,7 @@
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
-    <GenerateCreateScript>True</GenerateCreateScript>
+    <GenerateCreateScript>False</GenerateCreateScript>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -63,6 +63,17 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="Script.PostDeployment1.sql" />
+    <None Include="PopulateDB.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\Subscription.sql" />
+    <Build Include="dbo\Tables\LoginTable.sql" />
+    <Build Include="dbo\Tables\Income.sql" />
+    <Build Include="dbo\Tables\Goals.sql" />
+    <Build Include="dbo\Tables\Debt.sql" />
+    <Build Include="dbo\Tables\DailyExpenses.sql" />
+    <Build Include="dbo\Tables\Credit.sql" />
+    <Build Include="dbo\Tables\Budget.sql" />
   </ItemGroup>
 </Project>
