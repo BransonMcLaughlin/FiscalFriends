@@ -9,17 +9,33 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+USE [FiscalFriends]
+GO
+SET IDENTITY_INSERT [dbo].[ExpenseCategories] ON 
+GO
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (1, N'Fast Food                                                                                           ')
+GO
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (2, N'Groceries                                                                                           ')
+GO
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (3, N'Transportation                                                                                      ')
+GO
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (4, N'Housing                                                                                             ')
+GO
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (5, N'Utilities                                                                                           ')
+GO
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (6, N'Miscellaneous                                                                                       ')
+GO
+SET IDENTITY_INSERT [dbo].[ExpenseCategories] OFF
+GO
+SET IDENTITY_INSERT [dbo].[DailyExpenses] ON 
+GO
+INSERT [dbo].[DailyExpenses] ([ExpenseId], [UserId], [Date], [Category], [Vendor], [Status], [PaymentMethod], [Amount], [Recurring], [ReceiptImage], [Description]) VALUES (2, NULL, CAST(N'2024-04-15T10:08:00.123' AS DateTime), 1, N'test', NULL, N'test', CAST(0 AS Decimal(18, 0)), NULL, NULL, N'test')
+GO
+SET IDENTITY_INSERT [dbo].[DailyExpenses] OFF
+GO
 SET IDENTITY_INSERT [dbo].[User] ON 
 GO
-INSERT [dbo].[User] ([PersonID], [FirstName], [LastName], [Email], [PhoneNumber], [UserName], [PasswordHash], [LastLoggedIn], [Birthday], [AccountMade]) VALUES (1, N'1', N'1', N'11', N'1', N'1', N'$2a$13$LkxvZ4OydPvFWB2SQNp9HuPsYBRAz1CE5Y0DfP0d5oGvCg/fp890K', N'Apr  3 2024  4:53PM', CAST(N'1111-01-01' AS Date), CAST(N'2024-04-01' AS Date))
-GO
-INSERT [dbo].[User] ([PersonID], [FirstName], [LastName], [Email], [PhoneNumber], [UserName], [PasswordHash], [LastLoggedIn], [Birthday], [AccountMade]) VALUES (2, N'Branson', N'McLaughlin', N'mclaughlbw@jacks.sfasu.edu', N'1', N'Branson', N'$2a$13$3NsSiZWbZvgqNLbUs2pgWOcUqFPF4i6GhOItRwTf2rd2BaNFqVL8a', N'4/1/2024 1:30:16 PM', CAST(N'2004-05-20' AS Date), CAST(N'2024-04-01' AS Date))
-GO
-INSERT [dbo].[User] ([PersonID], [FirstName], [LastName], [Email], [PhoneNumber], [UserName], [PasswordHash], [LastLoggedIn], [Birthday], [AccountMade]) VALUES (3, N'Branson', N'McLaughlin', N'mclaughlbw@jacks.sfasu.edu', N'1', N'b', N'$2a$13$.e1xE1MJ7uEQ2g/Qd4wxbuqy6R2KLKuyFXdKOGdjDVpvoTohrrrCa', N'4/1/2024 1:55:36 PM', CAST(N'1111-01-11' AS Date), CAST(N'2024-04-01' AS Date))
-GO
-INSERT [dbo].[User] ([PersonID], [FirstName], [LastName], [Email], [PhoneNumber], [UserName], [PasswordHash], [LastLoggedIn], [Birthday], [AccountMade]) VALUES (4, N'Branson', N'McLaughlin', N'mclaughlbw@jacks.sfasu.edu', N'1', N'b', N'$2a$13$vCswPI6gF45.vRwCFXgMZ.wfwBQ1BjqLblNEGnZPU4D1lKQDkJLP6', N'4/1/2024 2:05:29 PM', CAST(N'1111-01-11' AS Date), CAST(N'2024-04-01' AS Date))
-GO
-INSERT [dbo].[User] ([PersonID], [FirstName], [LastName], [Email], [PhoneNumber], [UserName], [PasswordHash], [LastLoggedIn], [Birthday], [AccountMade]) VALUES (5, N'Branson', N'McLaughlin', N'mclaughlbw@jacks.sfasu.edu', N'1', N'b', N'$2a$13$zN/wHAY5XEVvNHsnypM.lOHX1xIysJICGr1B1iJckxTOXiheZ8cDO', N'4/1/2024 4:02:01 PM', CAST(N'2004-05-20' AS Date), CAST(N'2024-04-01' AS Date))
+INSERT [dbo].[User] ([PersonID], [FirstName], [LastName], [Email], [PhoneNumber], [UserName], [PasswordHash], [LastLoggedIn], [Birthday], [AccountMade]) VALUES (1, N'Andrew', N'Lambert', N'Andrew2020Lambert@gmail.com', N'18324973965', N'Lambertal1', N'$2a$13$j7/oIxHHX32XRUGYfWRhXOyhqoN0Vt2DyYAojtpraWRDdaDS3x6AG', CAST(N'2024-04-15T10:01:43.747' AS DateTime), CAST(N'2024-04-24' AS Date), CAST(N'2024-04-15T08:26:31.000' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[User] OFF
 GO
