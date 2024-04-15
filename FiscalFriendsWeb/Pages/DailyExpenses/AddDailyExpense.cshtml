@@ -13,7 +13,7 @@
 
 
 <div class="dailyExpenseContainer">
-<form method="post" class="dailyExpenseBox">
+    <form method="post" class="dailyExpenseBox">
         <h1>New Expense Form</h1>
         <!-- Date Purchased Label -->
         <label asp-for="newDailyExpense.date" class="form-label">Date Purchased:</label>
@@ -24,9 +24,8 @@
         <label asp-for="newDailyExpense.Category">Category:</label>
         <select asp-for="newDailyExpense.Category" asp-items="@Model.Categories"> onchange="displaySelectedCategory(this.value)" class="form-control"></select>
         <br />
-        <!-- input asp-for="newDailyExpense.Category" type="text" class="form-control" placeholder="transaction type" /> -->
+        <input asp-for="newDailyExpense.Category" type="text" class="form-control" placeholder="category">
         <input type="text" id="selectedCategory" class="form-control" style="display:none" placeholder="category" />
-
         <!-- Vendor Label -->
         <label asp-for="newDailyExpense.vendor" class="form-label">Vendor:</label>
         <input asp-for="newDailyExpense.vendor" type="text" class="form-control" placeholder="vendor" />
@@ -41,15 +40,18 @@
         <label asp-for="newDailyExpense.amount" class="form-label">Amount Spent:</label>
         <input asp-for="newDailyExpense.amount" type="text" class="form-control" placeholder="$0.00" />
         <span asp-validation-for="newDailyExpense.amount" class="text-danger"></span>
-
         <!-- Description Label -->
-        <label asp-for="newDailyExpense.description" class="form-label">Description:</label>
-        <input asp-for="newDailyExpense.description" type="text" class="form-control" placeholder="purchase details" />
-        <span asp-validation-for="newDailyExpense.description" class="text-danger"></span>
-
-        <br />
-        <br />
-        <!-- AddDailyExpense Button-->
-        <button id="btnAddDailyExpense" class="btn btn-primary">Submit Form</button>
-</form>
+        <div class="description-container">
+            <label asp-for="newDailyExpense.description" class="form-label">Description:</label>
+            <textarea asp-for="newDailyExpense.description" type="text" class="form-control" placeholder="Additional comments..."></textarea>
+            <span asp-validation-for="newDailyExpense.description" class="text-danger"></span>
+        </div>
+        <!-- Buttons Container -->
+        <div class="buttons-container">
+            <!-- AddDailyExpense Button-->
+            <button id="btnAddDailyExpense" class="btn btn-primary">Submit Form</button>
+            <!-- Clear Form Button -->
+            <button type="reset" class="btn btn-secondary">Clear Form</button>
+        </div>
+    </form>
 </div>
