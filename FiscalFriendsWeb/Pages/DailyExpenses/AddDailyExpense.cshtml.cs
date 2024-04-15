@@ -20,7 +20,7 @@ namespace FiscalFriendsWeb.Pages.DailyExpenses
         public List<SelectListItem> Categories { get; set; } = new List<SelectListItem>();
         public void OnGet()
         {
-            PopulateCategoryDDL();
+            // PopulateCategoryDDL();
         }
 
         public IActionResult OnPost()

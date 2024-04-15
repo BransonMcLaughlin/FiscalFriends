@@ -9,13 +9,13 @@ using System.Security.Claims;
 
 namespace FiscalFriendsWeb.Pages.Account
 {
-    [Authorize]
+    // [Authorize]
     public class ProfileModel : PageModel
     {
         public Profile UserProfile { get; set; } = new Profile();
         public void OnGet()
         {
-            PopulateProfile();
+            // PopulateProfile();
         }
 
         private void PopulateProfile()

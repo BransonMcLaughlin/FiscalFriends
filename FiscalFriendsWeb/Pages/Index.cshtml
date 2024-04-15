@@ -5,11 +5,11 @@
     Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthentication" : "_Layout";
 
 }
-
-<div class="text-center">
-    <h1 class="display-4">Hello!</h1>
+<link rel="stylesheet" href="~/css/IndexStyleSheet.css" />
+<h1 class="display">Hello!</h1>
+<div class="logInContainer">
     <!-- TEMPORARY -->
-    <div class="temp-solution">
+    <div class="logInBox">
         <div>Temp navigation links</div>
         <!-- Placing these elsewhere to better fit page structure (TEMPORARY) -->
         <li class="nav-item">
@@ -17,6 +17,12 @@
         </li>>
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-page="/Account/Profile">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-page="/DailyExpenses/AddDailyExpense">Add Daily Expense</a>
         </li>
         </ul>
     </div>

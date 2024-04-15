@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 
-
+// Script used to change the language on the dropdown.
 function changeLanguage(language) {
 
     document.getElementById('currentLanguage').textContent = language;
@@ -24,3 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+// Script to change the Daily Expense Transaction Type category.
+function displaySelectedCategory(value) {
+
+    var inputDisplay = document.getElementById('selectedCategory');
+    inputDisplay.value = value;
+    inputDisplay.style.display = 'block';
+
+}
