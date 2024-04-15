@@ -29,7 +29,7 @@ namespace FiscalFriendsWeb.Pages.DailyExpenses
         {
             using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
-                String cmdText = "SELECT amount, description, paymentMethod, vendor, date, category FROM DailyExpenses WHERE Category=@Category";
+                String cmdText = "SELECT amount, description, paymentMethod, vendor, date, category, ExpenseId FROM DailyExpenses WHERE Category=@Category";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
                 cmd.Parameters.AddWithValue("@Category", id );
                 conn.Open();
@@ -45,6 +45,7 @@ namespace FiscalFriendsWeb.Pages.DailyExpenses
                         Expense.vendor = reader.GetString(3);
                         Expense.date = reader.GetDateTime(4);
                         Expense.Category = reader.GetInt32(5);
+                        Expense.ExpenseId = reader.GetInt32(6);
                         DailyExpenses.Add(Expense);
                     }
                 }

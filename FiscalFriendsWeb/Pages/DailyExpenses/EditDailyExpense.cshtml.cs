@@ -28,15 +28,13 @@ namespace FiscalFriendsWeb.Pages.DailyExpenses
             {
                 using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
                 {
-                    string cmdText = "UPDATE DailyExpenses(Amount=@amount, Description=@description, PaymentMethod=@paymentMethod, Vendor=@vendor, Date=@date, Category=@category)" +
-                                              "WHERE DailyExpenseId=@expenseId";
+                    string cmdText = "UPDATE DailyExpenses SET Amount=@amount, Description=@description, PaymentMethod=@paymentMethod, Vendor=@vendor, Date=@date, Category=@category WHERE ExpenseId=@expenseId";
                     SqlCommand cmd = new SqlCommand(cmdText, conn);
                     cmd.Parameters.AddWithValue("@amount", Expense.amount);
                     cmd.Parameters.AddWithValue("@description", Expense.description);
                     cmd.Parameters.AddWithValue("@paymentMethod", Expense.paymentMethod);
-
-                    cmd.Parameters.AddWithValue("@vendor", Expense.vendor);
                     cmd.Parameters.AddWithValue("@expenseId", id);
+                    cmd.Parameters.AddWithValue("@vendor", Expense.vendor);
                     if (Expense.date == DateTime.MinValue)
                     {
                         cmd.Parameters.AddWithValue("@date", DateTime.Now);
@@ -89,17 +87,20 @@ namespace FiscalFriendsWeb.Pages.DailyExpenses
         {
             using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
-                String cmdText = "SELECT CategoryId, CategoryDescription FROM ExpenseCategories WHERE CategoryId=@categoryId";
+                String cmdText = "SELECT amount, description, paymentMethod, vendor, date, category FROM DailyExpenses WHERE expenseID=@ExpenseID";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
-                cmd.Parameters.AddWithValue("@categoryId", id);
+                cmd.Parameters.AddWithValue("@expenseID", id);
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    //create the Expense.DailyExpenseId = id;
-                    /// .
-                    /// ..
+                    Expense.amount = reader.GetDecimal(0);
+                    Expense.description = reader.GetString(1);
+                    Expense.paymentMethod = reader.GetString(2);
+                    Expense.vendor = reader.GetString(3);
+                    Expense.date = reader.GetDateTime(4);
+                    Expense.Category = reader.GetInt32(5);
                 }
             }
         }
