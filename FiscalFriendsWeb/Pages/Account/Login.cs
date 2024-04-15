@@ -51,9 +51,9 @@ namespace FiscalFriendsWeb.Pages.Account
             using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
                 String cmdText = "SELECT PasswordHash, PersonID, FirstName, Email " + 
-                    " FROM [User] WHERE Username=@username;";
+                    " FROM [User] WHERE Email=@email;";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
-                cmd.Parameters.AddWithValue("@username", loginUser.Username);
+                cmd.Parameters.AddWithValue("@email", loginUser.Email);
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
@@ -69,8 +69,7 @@ namespace FiscalFriendsWeb.Pages.Account
 
                             //Create a principal
                             string name = reader.GetString(2);
-                            string username = reader.GetString(4);
-                            string email = reader.GetString(5);
+                            string email = reader.GetString(3);
                             
 
                             Claim emailClaim = new Claim(ClaimTypes.Email, loginUser.Email);
@@ -84,8 +83,7 @@ namespace FiscalFriendsWeb.Pages.Account
                             ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
                             //4. Call HttpContext.SigninAsync() method to encrypt
-                            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
+                            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
                             return true;
                         }

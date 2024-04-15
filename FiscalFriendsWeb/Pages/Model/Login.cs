@@ -8,8 +8,9 @@ namespace FiscalFriendsWeb.Pages.LoginModel
     {
         public int loginId { get; set; }
         
-        [Required]
+        /*[Required]
         public String Username { get; set; }
+        */
         [Required]
         public String Password { get; set; }    
         
@@ -17,5 +18,6 @@ namespace FiscalFriendsWeb.Pages.LoginModel
 
         [Required]
         public string Email {  get; set; }
+
     }
 }
