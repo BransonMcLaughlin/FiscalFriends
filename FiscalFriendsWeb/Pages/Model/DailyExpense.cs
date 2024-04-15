@@ -3,7 +3,10 @@
 namespace FiscalFriendsWeb.Pages.Model
 {
     public class DailyExpense
+
     {
+        public int ExpenseId {  get; set; }
+
         [Display(Name = "Date")]
         public DateTime date { get; set; }
         [Display(Name ="Category")]
@@ -14,7 +17,7 @@ namespace FiscalFriendsWeb.Pages.Model
         [Required]
         public string paymentMethod {  get; set; }
         [Required]
-        public double amount { get; set; }
+        public Decimal amount { get; set; }
         public string description {  get; set; }
 
     }

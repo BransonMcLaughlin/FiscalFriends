@@ -14,13 +14,3 @@
     CONSTRAINT [FK_DailyExpenses_DailyExpenses] FOREIGN KEY ([Category]) REFERENCES [dbo].[ExpenseCategories] ([CategoryId])
 );
 
-
-
-
-
-
-
-
-
-
-

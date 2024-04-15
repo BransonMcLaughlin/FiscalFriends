@@ -7,5 +7,3 @@
     CONSTRAINT [PK_Budget] PRIMARY KEY CLUSTERED ([BudgetID] ASC)
 );
 
-
-

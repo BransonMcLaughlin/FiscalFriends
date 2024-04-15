@@ -63,7 +63,7 @@ namespace FiscalFriendsWeb.Pages.DailyExpenses
 
             using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
-                String cmdText = "SELECT CategoryId, CategoryDescription FROM ExpenseCategories";
+                String cmdText = "SELECT CategoryId, CategoryDescription FROM ExpenseCategories ORDER BY CategoryDescription";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
