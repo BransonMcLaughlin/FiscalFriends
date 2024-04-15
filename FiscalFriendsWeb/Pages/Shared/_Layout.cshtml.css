@@ -111,7 +111,7 @@ button.accept-policy {
     align-items: flex-start;
     position: absolute; 
     top: 20px;
-    right: 210px;
+    right: 215px;
     text-align: left;
 
 }
@@ -140,7 +140,7 @@ button.accept-policy {
     color: black;
     padding: 0.3rem 1rem;
     font-size: 10px;
-    line-height: 1.5px;
+    line-height: 0.5rem;
     
 
 }
