@@ -34,7 +34,7 @@ namespace FiscalFriendsWeb.Pages.Account
                     UserProfile.LastName = reader.GetString(1);
                     UserProfile.UserName = reader.GetString(2);
                     UserProfile.Email = reader.GetString(3);
-                    UserProfile.LastLoggedIn = reader.GetString(4);
+                    UserProfile.LastLoggedIn = reader.GetDateTime(4);
                 }
             }
         }

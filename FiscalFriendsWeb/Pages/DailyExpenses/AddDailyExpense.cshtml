@@ -1,30 +1,70 @@
 ﻿@page
 @model FiscalFriendsWeb.Pages.DailyExpenses.AddDailyExpenseModel
 @{
+    Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthentication" : "_Layout";
 }
 <form method="post" class="form-group">
     <div class="row m-2">
         <div class="col-2">
-            <label asp-for="newDailyExpense.paymentMethod" />
+            <label asp-for="newDailyExpense.amount"></label>
         </div>
         <div class="col-10">
-            <input type="text" class="form-control" asp-for="newDailyExpense.paymentMethod"/>
+            <input type="text" class="form-control" asp-for="newDailyExpense.amount" placeholder="0"/>
+        </div>
+        <span asp-validation-for="newDailyExpense.amount" class="text-danger"></span>
+    </div>
+
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="newDailyExpense.description"></label>
+        </div>
+        <div class="col-10">
+            <textarea class="form-control" asp-for="newDailyExpense.description"> </textarea>
+        </div>
+    </div>
+
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="newDailyExpense.paymentMethod"></label>
+        </div>
+        <div class="col-10">
+            <input type="text" class="form-control" asp-for="newDailyExpense.paymentMethod" />
+        </div>
+        <span asp-validation-for="newDailyExpense.paymentMethod" class="text-danger"></span>
+    </div>
+
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="newDailyExpense.vendor"></label>
+        </div>
+        <div class="col-10">
+            <input type="text" class="form-control" asp-for="newDailyExpense.vendor" />
+        </div>
+        <span asp-validation-for="newDailyExpense.vendor" class="text-danger"></span>
+    </div>
+
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="newDailyExpense.date"></label>
+        </div>
+        <div class="col-10">
+            <input type="date" class="form-control" placeholder="" asp-for="newDailyExpense.date" />
         </div>
     </div>
 
     <!--  This is to make the drop down table for daily expenses-->
     <div class="row m-2">
         <div class="col-2">
-            <label asp-for="newDailyExpense.Category" />
+            <label asp-for="newDailyExpense.Category"></label>
         </div>
         <div class="col-10">
-            <select asp-for="newDailyExpense.Category" asp-items="@Model.Categories" />
+            <select asp-for="newDailyExpense.Category" asp-items="@Model.Categories"></select>
         </div>
     </div>
 
     <div class="row m-2">
         <div class="col-2">
-            <button id="btnAdd" class="btn btn-primary">Add Daily Expense</button>
+            <button id="btnAddDailyExpense" class="btn btn-primary">Add Daily Expense</button>
         </div>
     </div>
 </form>
