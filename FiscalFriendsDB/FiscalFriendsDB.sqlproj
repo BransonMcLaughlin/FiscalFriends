@@ -75,5 +75,6 @@
     <Build Include="dbo\Tables\DailyExpenses.sql" />
     <Build Include="dbo\Tables\Credit.sql" />
     <Build Include="dbo\Tables\Budget.sql" />
+    <Build Include="dbo\Tables\ExpenseCategories.sql" />
   </ItemGroup>
 </Project>

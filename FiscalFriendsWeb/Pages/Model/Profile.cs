@@ -42,7 +42,7 @@ namespace FiscalFriendsWeb.Pages.ProfileModel
 
         public DateOnly Birthday { get; set; }
         public DateTime AccountMade { get; set; }
-        public String LastLoggedIn { get; set; }
+        public DateTime LastLoggedIn { get; set; }
 
         // public string ProfilePicture { get; set; }
 
