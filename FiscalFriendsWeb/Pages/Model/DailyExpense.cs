@@ -17,7 +17,7 @@ namespace FiscalFriendsWeb.Pages.Model
         [Required]
         public string paymentMethod {  get; set; }
         [Required]
-        public double amount { get; set; }
+        public Decimal amount { get; set; }
         public string description {  get; set; }
 
     }
