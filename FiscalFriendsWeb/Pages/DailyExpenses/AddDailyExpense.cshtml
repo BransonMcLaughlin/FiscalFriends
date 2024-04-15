@@ -24,8 +24,8 @@
         <label asp-for="newDailyExpense.Category">Category:</label>
         <select asp-for="newDailyExpense.Category" asp-items="@Model.Categories"> onchange="displaySelectedCategory(this.value)" class="form-control"></select>
         <br />
-        <input asp-for="newDailyExpense.Category" type="text" class="form-control" placeholder="category">
-        <input type="text" id="selectedCategory" class="form-control" style="display:none" placeholder="category" />
+        <!-- <input asp-for="newDailyExpense.Category" type="text" class="form-control" placeholder="category"> -->
+        <!-- <input type="text" id="selectedCategory" class="form-control" style="display:none" placeholder="category" /> -->
         <!-- Vendor Label -->
         <label asp-for="newDailyExpense.vendor" class="form-label">Vendor:</label>
         <input asp-for="newDailyExpense.vendor" type="text" class="form-control" placeholder="vendor" />
