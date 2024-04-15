@@ -6,9 +6,9 @@
     [PhoneNumber]  VARCHAR (20)  NOT NULL,
     [UserName]     VARCHAR (12)  NOT NULL,
     [PasswordHash] VARCHAR (100) NOT NULL,
-    [LastLoggedIn] DATETIME NOT NULL,
+    [LastLoggedIn] DATETIME      NOT NULL,
     [Birthday]     DATE          NOT NULL,
-    [AccountMade]  DATETIME          NOT NULL,
+    [AccountMade]  DATETIME      NOT NULL,
     CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED ([PersonID] ASC)
 );
 

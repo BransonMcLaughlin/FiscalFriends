@@ -6,8 +6,8 @@
     <Name>FiscalFriendsDB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{18a2fa60-9465-477c-b557-b3073be40fbe}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <ProjectGuid>{8b55cfc6-a76c-409e-9aac-11467d8ee8b1}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -24,7 +24,6 @@
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
-    <GenerateCreateScript>False</GenerateCreateScript>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -63,18 +62,18 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PopulateDB.sql" />
+    <Build Include="dbo\Tables\Budget.sql" />
+    <Build Include="dbo\Tables\Credit.sql" />
+    <Build Include="dbo\Tables\DailyExpenses.sql" />
+    <Build Include="dbo\Tables\Debt.sql" />
+    <Build Include="dbo\Tables\ExpenseCategories.sql" />
+    <Build Include="dbo\Tables\Goals.sql" />
+    <Build Include="dbo\Tables\Income.sql" />
+    <Build Include="dbo\Tables\LoginTable.sql" />
+    <Build Include="dbo\Tables\Subscription.sql" />
+    <Build Include="dbo\Tables\User.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\User.sql" />
-    <Build Include="dbo\Tables\Subscription.sql" />
-    <Build Include="dbo\Tables\LoginTable.sql" />
-    <Build Include="dbo\Tables\Income.sql" />
-    <Build Include="dbo\Tables\Goals.sql" />
-    <Build Include="dbo\Tables\Debt.sql" />
-    <Build Include="dbo\Tables\DailyExpenses.sql" />
-    <Build Include="dbo\Tables\Credit.sql" />
-    <Build Include="dbo\Tables\Budget.sql" />
-    <Build Include="dbo\Tables\ExpenseCategories.sql" />
+    <PostDeploy Include="dbo\PopulateDB.sql" />
   </ItemGroup>
 </Project>
