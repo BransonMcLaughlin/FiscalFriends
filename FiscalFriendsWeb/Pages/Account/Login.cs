@@ -50,7 +50,7 @@ namespace FiscalFriendsWeb.Pages.Account
         {
             using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
-                String cmdText = "SELECT PasswordHash, PersonID, FirstName, Email " + 
+                String cmdText = "SELECT PasswordHash, PersonID, FirstName, Email, LastName, Username" + 
                     " FROM [User] WHERE Email=@email;";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
                 cmd.Parameters.AddWithValue("@email", loginUser.Email);

@@ -8,7 +8,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(options =>
     {
         options.Cookie.Name = "FiscalFriendsCookie";
-
+        options.LoginPath = "/Account/Login";
     });
 
 

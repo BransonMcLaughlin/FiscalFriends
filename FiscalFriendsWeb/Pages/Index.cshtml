@@ -2,6 +2,8 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page"; // This is the html for the home page.
+    Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthentication" : "_Layout";
+
 }
 
 <div class="text-center">
@@ -12,13 +14,7 @@
         <!-- Placing these elsewhere to better fit page structure (TEMPORARY) -->
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-page="/Account/Login">Log In</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-page="/Account/Register">Register</a>
-        </li>
+        </li>>
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
         </li>
