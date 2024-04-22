@@ -3,24 +3,98 @@
 */
 
 .logInContainer {
-    
-    background-size: cover;
+    background-image: url('../css/HomePageImage2.jpg');
+    background-size: contain;
+    background-position: center center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
-    background-position: center;
     width: 100%;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
 }
 .logInBox {
-    background-color: lightgreen;
     text-align: center;
     border-radius: 8px;
-    width: 500px;
-    height: 600px;
-    margin: auto;
+    width: 800px;
+    height: 650px;
+    margin-left: 700px;
     padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -125px;
+}
+.bluebox {
+    display: flex;
+    background-color: lightblue;
+    justify-content: center;
+    animation: rainbow-animation 6s linear infinite;
+    border: 2.5px solid;
+    align-items: center;
+    width: 500px;
+    height: 550px;
+    margin: 30px;
+    padding: 10px;
+    flex-direction: column;
+    border-radius: 75px;
+    font-family: 'Times New Roman', Times, serif;
+}
+    .bluebox-1 p {
+        font-size: 18px;
+    }
+
+.bluebox-2 {
+    border: 2.5px solid;
+    border-radius: 75%;
+    animation: rainbow-animation 6s linear infinite;
+    background-color: lightblue;
+    justify-content: flex-end;
+    width: 400px;
+    height: 300px;
+    margin: 30px;
+    padding: 10px;
+    border-radius: 75%;
+    font-family: 'Times New Roman', Times, serif;
+}
+    .bluebox-2 p {
+        font-size: 18px;
+    }
+
+@keyframes rainbow-animation {
+    0% { border-color: red; }
+    15% { border-color: orange; }
+    30% { border-color: yellow; }
+    45% { border-color: green; }
+    60% { border-color: blue; }
+    75% { border-color: indigo; }
+    90% { border-color: violet; }
+    100% { border-color: red; }
+}
+
+.pretty-button {
+    border: 2.5px solid;
+    border-radius: 75%;
+    border-color: #29622c;
+    background-color: #c0f2ba;
+    color: black;
+    padding: 10px 20px;
+    margin: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 30%;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.pretty-button:hover {
+    background-color: #66be75;
 }

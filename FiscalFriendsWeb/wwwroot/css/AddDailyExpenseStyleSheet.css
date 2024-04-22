@@ -17,7 +17,9 @@
 }
 
 .dailyExpenseBox {
-    background-color: lightgreen;
+    background-color: #c0f2ba;
+    animation: rainbow-animation 6s linear infinite;
+    border: 2.5px solid;
     text-align: left;
     border: 1px solid #000;
     border-radius: 8px;
@@ -25,6 +27,17 @@
     height: auto;
     margin: auto;
     padding: 20px;
+}
+
+@keyframes rainbow-animation {
+    0% { border-color: red; }
+    15% { border-color: orange; }
+    30% { border-color: yellow; }
+    45% { border-color: green; }
+    60% { border-color: blue; }
+    75% { border-color: indigo; }
+    90% { border-color: violet; }
+    100% { border-color: red; }
 }
 
     .dailyExpenseBox h1 {
