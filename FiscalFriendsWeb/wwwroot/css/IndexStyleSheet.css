@@ -2,14 +2,14 @@
     Homepage Style Sheet
 */
 
-.logInContainer {
+.homepageContainer {
     background-image: url('../css/HomePageImage2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: local;
     background-repeat: no-repeat;
     width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -17,18 +17,17 @@
     box-sizing: border-box;
     margin-right: 40%;
 }
-.logInBox {
+.homepageBox {
     text-align: center;
     border-radius: 8px;
     width: 100%;
-    height: auto;
+    height: 5vh;
     margin-left: 50%;
     padding: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
-    margin-top: auto;
 }
 .bluebox {
     display: flex;

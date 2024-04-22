@@ -1,0 +1,14 @@
+﻿/*
+    Privacy Style Sheet
+*/
+
+
+
+.privacyContainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+}
