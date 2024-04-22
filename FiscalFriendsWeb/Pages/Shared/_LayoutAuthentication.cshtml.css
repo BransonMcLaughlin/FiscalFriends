@@ -3,50 +3,56 @@
     Header & Home Page Style Sheet
 
 */
+
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 a {
-  color: #0077cc;
+    color: #0077cc;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+    background: #c0f2ba;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    white-space: nowrap;
+    line-height: 60px;
+    margin: auto;
+    text-align: left;
 }
 
 /* CSS for the header */
@@ -65,6 +71,11 @@ button.accept-policy {
     margin-right: auto;
 }
 
+.slogan {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 .navbar-collapse {
     width: 100%;
     margin-left: 200px;
@@ -73,12 +84,12 @@ button.accept-policy {
 }
 
 .container.flex-container {
+    background-color: #c0f2ba;
     display: block;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     font-family: 'Times New Roman', Times, serif
-    
 }
 
 .navbar-nav {
@@ -88,10 +99,48 @@ button.accept-policy {
     width: auto;
     justify-content: space-between;
     flex-grow: 0;
-
 }
 
     .navbar-nav .nav-item {
         margin-right: 20px;
     }
 
+/* 
+    Top right side interactions 
+    Language | Customer Service | About Us ) 
+*/
+
+.top-right-interactions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    top: 20px;
+    right: 0.5rem;
+    text-align: left;
+}
+
+    .top-right-interactions a {
+        color: black;
+        text-decoration: none;
+        padding: 0.3rem 1rem;
+        font-size: 10px;
+    }
+
+    .top-right-interactions button:focus,
+    .top-right-interactions .btn:focus,
+    .top-right-interactions .btn:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    .top-right-interactions .dropdown-toggle {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        color: black;
+        padding: 0.3rem 1rem;
+        font-size: 10px;
+        line-height: 0.5rem;
+    }

@@ -1,0 +1,73 @@
+﻿/* 
+    Profile Style Sheet
+*/
+
+.profileContainer {
+    width: 20%;
+    min-height: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-right: 0;
+}
+
+.profileBox {
+    text-align: center;
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    margin-left: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    margin-top: auto;
+}
+
+.profileContent {
+    display: flex;
+    background-color: lightblue;
+    justify-content: center;
+    width: 45vw;
+    height: 50vh;
+    margin: auto;
+    padding: 100%;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.profilePicture {
+    background-image: url('../css/ProfileImage.png');
+    background-size: contain;
+    background-position: bottom;
+    background-attachment: local;
+    background-repeat: no-repeat;
+    justify-content: center;
+    border: 10px solid;
+    width: 100px;
+    height: auto;
+    margin: auto;
+    animation: rainbow-animation 6s linear infinite;
+    border: 2.5px solid;
+}
+
+@keyframes rainbow-animation {
+    0% {
+        border-color: lightgreen;
+    }
+    25%{
+        border-color: green;
+    }
+    50% {
+        border-color: lightblue;
+    }
+    75% {
+        border-color: blue;
+    }
+    100% {
+        border-color: lightgreen;
+    }
+}
