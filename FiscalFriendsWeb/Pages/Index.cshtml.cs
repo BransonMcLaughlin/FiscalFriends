@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Reflection.Metadata;
 
 namespace FiscalFriendsWeb.Pages
 {
@@ -14,7 +15,7 @@ namespace FiscalFriendsWeb.Pages
 
         public void OnGet()
         {
-
+            
         }
     }
 }

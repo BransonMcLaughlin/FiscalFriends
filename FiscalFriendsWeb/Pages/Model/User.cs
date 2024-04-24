@@ -34,6 +34,7 @@ namespace FiscalFriendsWeb.Pages.UserModel
 
         // Password
         [Required(ErrorMessage = "A Password is required.")]
+        [MinLength(10, ErrorMessage = "Minimum length of 10 characters is required")]
         [Display(Name = "Password: ")]
         public string Password { get; set; }
 
