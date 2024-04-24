@@ -22,7 +22,7 @@
 
 .signInBox {
     background-color: #c0f2ba;
-    animation: rainbow-animation 6s linear infinite;
+    animation: blueAndGreen-animation 6s linear infinite;
     border: 2.5px solid;
     text-align: center;
     border-radius: 8px;
@@ -80,36 +80,24 @@ label[for="rememberMe"] {
     margin: auto;
 }
 
-@keyframes rainbow-animation {
+@keyframes blueAndGreen-animation {
     0% {
-        border-color: red;
+        border-color: lightgreen;
     }
 
-    15% {
-        border-color: orange;
-    }
-
-    30% {
-        border-color: yellow;
-    }
-
-    45% {
+    25% {
         border-color: green;
     }
 
-    60% {
-        border-color: blue;
+    50% {
+        border-color: lightblue;
     }
 
     75% {
-        border-color: indigo;
-    }
-
-    90% {
-        border-color: violet;
+        border-color: blue;
     }
 
     100% {
-        border-color: red;
+        border-color: lightgreen;
     }
 }

@@ -3,62 +3,68 @@
 */
 
 .profileContainer {
-    width: 20%;
-    min-height: 20%;
+    /* <a href="https://www.freepik.com/free-photo/top-view-finance-business-elements_11621172.htm#query=finance%20background&position=3&from_view=keyword&track=ais&uuid=1c3aa48c-706c-4da8-8c34-0a162cd952ae">Image by freepik</a>; */
+    background-image: url('../css/profileBackgroundImage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+    background-repeat: no-repeat;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    margin-right: 0;
-}
-
-.profileBox {
-    text-align: center;
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-    margin-left: 50%;
-    padding: 20px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     flex-direction: column;
-    margin-top: auto;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10%;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .profileContent {
     display: flex;
+    flex-direction: row;
     background-color: lightblue;
     justify-content: center;
-    width: 45vw;
-    height: 50vh;
-    margin: auto;
-    padding: 100%;
-    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 35vw;
+    height: 35vh;
+    margin-top: 1vh;
+    padding: 3%;
     font-family: 'Times New Roman', Times, serif;
+    animation: blueAndGreen-animation 6s linear infinite;
+    border: 5px solid;
+    font-size: 18px;
+}
+
+.profileHeader {
+    width: 100%;
+    text-align: center;
 }
 
 .profilePicture {
     background-image: url('../css/ProfileImage.png');
-    background-size: contain;
-    background-position: bottom;
+    background-size: cover;
+    background-position: center;
     background-attachment: local;
     background-repeat: no-repeat;
     justify-content: center;
-    border: 10px solid;
-    width: 100px;
-    height: auto;
-    margin: auto;
-    animation: rainbow-animation 6s linear infinite;
-    border: 2.5px solid;
+    width: 10vw;
+    height: 25vh;
+    margin: -15px;
+    border: 5px solid black;
+    overflow: hidden;
 }
 
-@keyframes rainbow-animation {
+.btn-primary {
+    width: auto;
+    margin-top: auto;
+}
+
+@keyframes blueAndGreen-animation {
     0% {
         border-color: lightgreen;
     }
-    25%{
+    25% {
         border-color: green;
     }
     50% {
@@ -70,4 +76,19 @@
     100% {
         border-color: lightgreen;
     }
+}
+
+.h1 {
+    font-size: 48px;
+    text-align: center;
+}
+
+.profileInfo {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    font-family: 'Times New Roman', Times, serif;
+
 }

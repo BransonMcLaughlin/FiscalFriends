@@ -8,17 +8,18 @@
 <link rel="stylesheet" href="~/css/ProfileStyleSheet.css" />
 
 <div class="profileContainer">
-    <div class="profileBox"> 
-        <div class="profileContent">
-            <label>First Name:     @Model.UserProfile.FirstName</label>
-        <br />
-            <label>Last Name:    @Model.UserProfile.LastName</label>
-        <br />
-            <label>Username:     @Model.UserProfile.UserName</label>
-        <br />
-            <label>Email:    @Model.UserProfile.Email</label>
-        <br />
-            <div class="profilePicture"></div>
+    <div class"profileHeader">  
+    <h1>Hello, <span>@Model.UserProfile.FirstName!</span></h1>
+    <div class="profileContent">
+        <div class="profilePicture"></div>
+        <div class="profileInfo">
+
+        <label>First Name:      @Model.UserProfile.FirstName</label>
+        <label>Last Name:       @Model.UserProfile.LastName</label>
+        <label>Username:        @Model.UserProfile.UserName</label>
+        <label>Email:       @Model.UserProfile.Email</label>
         </div>
+        <a asp-page="EditDailyExpense" asp-route-id="" class="btn btn-primary">Edit</a>
+    </div>
     </div>
 </div>

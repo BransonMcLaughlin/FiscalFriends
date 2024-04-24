@@ -3,80 +3,43 @@
 @{
     Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthentication" : "_Layout";
 }
-<form method="post" class="form-group">
-    <div class="row m-2">
-        <label class="form-label">Category</label>
-    </div>
-    <div class="col-8">
-        <select asp-for="SelectedCategoryId" asp-items="Model.Categories"></select>
-    </div>
-    <div class="col-2">
-        <button class="btn btn-primary" id="btnView">Display</button>
-    </div>
+<link rel="stylesheet" href="~/css/ViewDailyExpenseStyleSheet.css" />
 
-    @foreach (var DailyExpense in Model.DailyExpenses)
-    {
-        <div class="row m-2 border">
-            <div class="row m-2">
-                <div class="col-2">
-                    <label class="form-label" asp-for="@DailyExpense.date"></label>
-                </div>
-                <div class="col-10">
-                    <label class="form-label">@DailyExpense.date</label>
-                </div>
-            </div>
-
-            <div class="row m-2">
-                <div class="col-2">
-                    <label class="form-label" asp-for="@DailyExpense.Category"></label>
-                </div>
-                <div class="col-10">
-                    <label class="form-label">@DailyExpense.Category</label>
-                </div>
-            </div>
-
-            <div class="row m-2">
-                <div class="col-2">
-                    <label class="form-label" asp-for="@DailyExpense.vendor"></label>
-                </div>
-                <div class="col-10">
-                    <label class="form-label">@DailyExpense.vendor</label>
-                </div>
-            </div>
-
-            <div class="row m-2">
-                <div class="col-2">
-                    <label class="form-label" asp-for="@DailyExpense.paymentMethod"></label>
-                </div>
-                <div class="col-10">
-                    <label class="form-label">@DailyExpense.paymentMethod</label>
-                </div>
-            </div>
-
-            <div class="row m-2">
-                <div class="col-2">
-                    <label class="form-label" asp-for="@DailyExpense.amount"></label>
-                </div>
-                <div class="col-10">
-                    <label class="form-label">@DailyExpense.amount</label>
-                </div>
-            </div>
-
-            <div class="row m-2">
-                <div class="col-2">
-                    <label class="form-label" asp-for="@DailyExpense.description"></label>
-                </div>
-                <div class="col-10">
-                    <label class="form-label">@DailyExpense.description</label>
-                </div>
-            </div>
-
-            <div class="row m-2">
-                <div class="col-2">
-                    <a asp-page="EditDailyExpense" asp-route-id="@DailyExpense.ExpenseId" class="btn btn-primary">Edit</a>
-                </div>
-            </div>
+<div class="dailyExpenseContainer">
+    <form method="post" class="dailyExpenseBox">
+        <h1>View Daily Expense</h1>
+        <div class="categoryDisplayContainer"> 
+            <label class="form-label">Category</label>
+            <select asp-for="SelectedCategoryId" asp-items="Model.Categories"></select>
+            <br />
+            <button class="btn btn-primary" id="btnView">Display</button>
         </div>
-    }
 
-</form>
+        @foreach (var DailyExpense in Model.DailyExpenses)
+        {
+            <div class="row m-2 border">
+                        <!-- Date -->
+                        <label class="form-label" asp-for="@DailyExpense.date">Date Purchased:</label>
+                        <input type="text" readonly class="form-control" value="@DailyExpense.date" />
+                        <!-- Category-->
+                        <label class="form-label" asp-for="@DailyExpense.Category">Category:</label>
+                        <input type="text" readonly class="form-control" value="@DailyExpense.Category" />
+                        <!-- Vendor -->
+                        <label class="form-label" asp-for="@DailyExpense.vendor">Vendor:</label>
+                        <input type="text" readonly class="form-control" value="@DailyExpense.vendor" />
+                        <!-- Payment Method-->
+                        <label class="form-label" asp-for="@DailyExpense.paymentMethod">Payment Method:</label>
+                        <input type="text" readonly class="form-control" value="@DailyExpense.paymentMethod" />
+                        <!-- Amount -->
+                        <label class="form-label" asp-for="@DailyExpense.amount">Amount:</label>
+                        <input type="text" readonly class="form-control" value="@DailyExpense.amount" />
+                        <!-- Description -->
+                        <label class="form-label" asp-for="@DailyExpense.description">Description:</label>
+                        <input type="text" readonly class="form-control" value="@DailyExpense.description" />
+                        <!-- Edit Button -->
+                        <a asp-page="EditDailyExpense" asp-route-id="@DailyExpense.ExpenseId" class="btn btn-primary">Edit</a>
+            </div>
+        }
+
+    </form>
+</div>

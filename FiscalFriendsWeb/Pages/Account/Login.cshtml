@@ -4,6 +4,7 @@
     ViewData["Title"] = "Log In";
 }
 <link rel="stylesheet" href ="~/css/LoginStyleSheet.css" />
+
 <div class="signInContainer">
     <form method="post" class="signInBox">
     <h2> Welcome. </h2>
@@ -14,12 +15,12 @@
 
     <!-- Email Label -->
     <div class="frmGroup">
-    <label asp-for="loginUser.Email" class="form-label"></label>
+    <label asp-for="loginUser.Email" class="form-label">Email:</label>
             <input asp-for="loginUser.Email" type="text" class="form-control" placeholder="email" />
             <span asp-validation-for="loginUser.Email" class="text-danger"></span>
 
     <!-- Password Label -->
-    <label asp-for="loginUser.Password" class="form-label"></label>
+    <label asp-for="loginUser.Password" class="form-label">Password:</label>
     <input asp-for="loginUser.Password" type="password" class="form-control" placeholder="password"/>
     <span asp-validation-for="loginUser.Password" class="text-danger"></span>
 
