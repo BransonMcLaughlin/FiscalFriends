@@ -1,5 +1,6 @@
 using FiscalFriendsBusiness;
 using FiscalFriendsWeb.Pages.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,6 +9,7 @@ using Microsoft.Data.SqlClient;
 namespace FiscalFriendsWeb.Pages.DailyExpenses
 {
     [BindProperties]
+    [Authorize]
     public class ViewDailyExpensesModel : PageModel
     {
 

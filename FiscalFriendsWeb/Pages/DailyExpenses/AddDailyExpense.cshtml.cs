@@ -11,6 +11,7 @@ using Microsoft.Data.SqlClient;
 namespace FiscalFriendsWeb.Pages.DailyExpenses
 {
     [BindProperties]
+    [Authorize]
     public class AddDailyExpenseModel : PageModel
     {
         
