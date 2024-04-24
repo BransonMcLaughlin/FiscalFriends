@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Home page"; // This is the html for the home page.
     Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthentication" : "_Layout";
-
 }
+
 <link rel="stylesheet" href="~/css/IndexStyleSheet.css" />
 <div class="homepageContainer">
     <!-- TEMPORARY -->
@@ -16,8 +16,9 @@
         <div class="bluebox">
             <h1> Take control of your financial future </h1>
             <p> Embrace effecient budgeting and insightful spending analysis with our personal finance tools, designed to guide you towards achieving your financial goals with confidence and clarity.</p>
-            <a class="pretty-button" asp-area="" asp-page="/Account/Login">Login</a>
-            <a class="pretty-button" asp-area="" asp-page="/Account/Register">Register</a>
+            <a id="extraLogIn" class="pretty-button" asp-area="" asp-page="/Account/Login">Login</a>
+            <a id="extraRegister" class="pretty-button" asp-area="" asp-page="/Account/Register">Register</a>
         </div>
    </div>
 </div>
+

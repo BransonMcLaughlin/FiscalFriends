@@ -16,7 +16,7 @@
     <!-- Removing for now |||| <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> -->
 
 </head>
-<body>
+<body onload="checkBtn()">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container flex-container">
@@ -111,4 +111,10 @@
 
 
 </body>
+<script>
+    function checkBtn() {
+        document.getElementById("extraLogIn").style.display = "none";
+        document.getElementById("extraRegister").style.display = "none";;
+    }
+</script>
 </html>
