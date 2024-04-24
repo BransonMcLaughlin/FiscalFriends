@@ -19,6 +19,7 @@ namespace FiscalFriendsWeb.Pages.DailyExpenses
         public void OnGet()
         {
             PopulateCategoryDDL();
+            PopulateDailyExpense(0);
         }
 
         public void OnPost()
