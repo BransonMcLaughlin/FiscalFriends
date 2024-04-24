@@ -19,8 +19,9 @@ namespace FiscalFriendsWeb.Pages.DailyExpenses
         public void OnGet()
         {
             PopulateCategoryDDL();
-            PopulateDailyExpense(0);
+            PopulateDefault();
         }
+
 
         public void OnPost()
         {
@@ -35,6 +36,46 @@ namespace FiscalFriendsWeb.Pages.DailyExpenses
                 String cmdText = "SELECT amount, description, paymentMethod, vendor, date, category, ExpenseId FROM DailyExpenses WHERE Category=@Category";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
                 cmd.Parameters.AddWithValue("@Category", id );
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var Expense = new DailyExpense();
+                        Expense.amount = reader.GetDecimal(0);
+                        Expense.description = reader.GetString(1);
+                        Expense.paymentMethod = reader.GetString(2);
+                        Expense.vendor = reader.GetString(3);
+                        Expense.date = reader.GetDateTime(4);
+                        Expense.Category = reader.GetInt32(5);
+                        Expense.ExpenseId = reader.GetInt32(6);
+                        DailyExpenses.Add(Expense);
+                    }
+                }
+            }
+        }
+
+        private void PopulateDefault()
+        {
+            int defaultID = 0;
+            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
+            {
+                String cmdText = "SELECT CategoryId, CategoryDescription FROM ExpenseCategories ORDER BY CategoryDescription";
+                SqlCommand cmd = new SqlCommand(cmdText, conn);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    var Category = new SelectListItem();
+                    defaultID = reader.GetInt32(0);
+                }
+            }
+            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString())) {
+                string cmdText = "SELECT amount, description, paymentMethod, vendor, date, category, ExpenseId FROM DailyExpenses WHERE Category=@Category";
+                SqlCommand cmd = new SqlCommand(cmdText, conn);
+                cmd.Parameters.AddWithValue("@Category", defaultID);
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
