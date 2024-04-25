@@ -113,8 +113,10 @@
 </body>
 <script>
     function checkBtn() {
-        document.getElementById("extraLogIn").style.display = "none";
-        document.getElementById("extraRegister").style.display = "none";;
+        if (location.href.split("/").slice(-1) == '') {
+            document.getElementById("extraLogIn").style.display = "none";
+            document.getElementById("extraRegister").style.display = "none";
+        }
     }
 </script>
 </html>
