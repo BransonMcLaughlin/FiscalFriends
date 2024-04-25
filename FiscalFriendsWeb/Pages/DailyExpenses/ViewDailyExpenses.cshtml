@@ -18,26 +18,28 @@
         @foreach (var DailyExpense in Model.DailyExpenses)
         {
             <div class="row m-2 border">
-                        <!-- Date -->
-                        <label class="form-label" asp-for="@DailyExpense.date">Date Purchased:</label>
-                        <input type="text" readonly class="form-control" value="@DailyExpense.date" />
-                        <!-- Category-->
-                        <label class="form-label" asp-for="@DailyExpense.Category">Category:</label>
-                        <input type="text" readonly class="form-control" value="@DailyExpense.Category" />
-                        <!-- Vendor -->
-                        <label class="form-label" asp-for="@DailyExpense.vendor">Vendor:</label>
-                        <input type="text" readonly class="form-control" value="@DailyExpense.vendor" />
-                        <!-- Payment Method-->
-                        <label class="form-label" asp-for="@DailyExpense.paymentMethod">Payment Method:</label>
-                        <input type="text" readonly class="form-control" value="@DailyExpense.paymentMethod" />
-                        <!-- Amount -->
-                        <label class="form-label" asp-for="@DailyExpense.amount">Amount:</label>
-                        <input type="text" readonly class="form-control" value="@DailyExpense.amount" />
-                        <!-- Description -->
-                        <label class="form-label" asp-for="@DailyExpense.description">Description:</label>
-                        <input type="text" readonly class="form-control" value="@DailyExpense.description" />
-                        <!-- Edit Button -->
-                        <a asp-page="EditDailyExpense" asp-route-id="@DailyExpense.ExpenseId" class="btn btn-primary">Edit</a>
+                <!-- Date -->
+                <label class="form-label" asp-for="@DailyExpense.date">Date Purchased:</label>
+                <input type="text" readonly class="form-control" value="@DailyExpense.date" />
+                <!-- Category-->
+                <label class="form-label" asp-for="@DailyExpense.Category">Category:</label>
+                <input type="text" readonly class="form-control" value="@DailyExpense.Category" />
+                <!-- Vendor -->
+                <label class="form-label" asp-for="@DailyExpense.vendor">Vendor:</label>
+                <input type="text" readonly class="form-control" value="@DailyExpense.vendor" />
+                <!-- Payment Method-->
+                <label class="form-label" asp-for="@DailyExpense.paymentMethod">Payment Method:</label>
+                <input type="text" readonly class="form-control" value="@DailyExpense.paymentMethod" />
+                <!-- Amount -->
+                <label class="form-label" asp-for="@DailyExpense.amount">Amount:</label>
+                <input type="text" readonly class="form-control" value="@DailyExpense.amount" />
+                <!-- Description -->
+                <label class="form-label" asp-for="@DailyExpense.description">Description:</label>
+                <input type="text" readonly class="form-control" value="@DailyExpense.description" />
+                <!-- Edit Button -->
+                <div class="buttons-container">
+                    <a asp-page="EditDailyExpense" asp-route-id="@DailyExpense.ExpenseId" class="btn btn-primary">Edit</a>
+                </div>
             </div>
         }
 

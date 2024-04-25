@@ -14,6 +14,8 @@
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
 .dailyExpenseBox {
