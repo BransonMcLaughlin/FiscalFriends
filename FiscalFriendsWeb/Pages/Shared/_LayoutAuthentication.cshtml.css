@@ -134,13 +134,3 @@ button.accept-policy {
         outline: none !important;
         box-shadow: none !important;
     }
-
-    .top-right-interactions .dropdown-toggle {
-        background-color: transparent;
-        border: none;
-        box-shadow: none;
-        color: black;
-        padding: 0.3rem 1rem;
-        font-size: 10px;
-        line-height: 0.5rem;
-    }
