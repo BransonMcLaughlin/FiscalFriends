@@ -29,6 +29,11 @@ namespace FiscalFriendsWeb.Pages.DailyExpenses
             PopulateCategoryDDL();
         }
 
+       // public void OnPostDelete(int id) // One way to delete using same page
+        //{
+
+        //}
+
         private void PopulateDailyExpense(int id)
         {
             using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))

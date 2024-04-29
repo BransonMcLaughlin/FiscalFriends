@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace FiscalFriendsWeb.Pages.UserModel
 
@@ -35,6 +36,7 @@ namespace FiscalFriendsWeb.Pages.UserModel
         // Password
         [Required(ErrorMessage = "A Password is required.")]
         [MinLength(10, ErrorMessage = "Minimum length of 10 characters is required")]
+        
         [Display(Name = "Password: ")]
         public string Password { get; set; }
 
@@ -58,4 +60,6 @@ namespace FiscalFriendsWeb.Pages.UserModel
 
         public bool rememberMe { get; set; }
     }
+
+    
 }
