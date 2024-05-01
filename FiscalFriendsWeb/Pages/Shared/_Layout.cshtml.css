@@ -58,12 +58,14 @@ button.accept-policy {
 
 .header-logo-top {
     display: flex;
+    flex-grow: 1;
     position: relative;
     align-items: center;
 }
 
 .blue-box {
     background-color: lightblue;
+    border: 1px solid #25b623;
     height: 100px;
     flex-grow: 1;
     margin-left: 20px;
@@ -77,10 +79,9 @@ button.accept-policy {
 }
 
 .navbar-collapse {
-    width: 100%;
-    margin-left: 200px;
-    margin-top: -10px;
     width: auto;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .container.flex-container {
@@ -97,13 +98,15 @@ button.accept-policy {
     padding-left: 0;
     margin-left: 0;
     width: auto;
-    justify-content: space-between;
-    flex-grow: 0;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-grow: 1;
 
 }
 
     .navbar-nav .nav-item {
         margin-right: 20px;
+        margin-top: -1.5%;
     }
 
 /* 
@@ -112,16 +115,17 @@ button.accept-policy {
 */
 
 .top-right-interactions {
-    
     display: flex;
+    border-left: 2px solid #25b623;
+    padding-left: 10px;
+    height: 70%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    position: absolute; 
+    position: absolute;
     top: 20px;
     right: 0.5rem;
     text-align: left;
-
 }
 
 .top-right-interactions a {

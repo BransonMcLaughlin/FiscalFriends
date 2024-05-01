@@ -65,6 +65,7 @@ button.accept-policy {
 
 .blue-box {
     background-color: lightblue;
+    border: 1px solid #25b623;
     height: 100px;
     flex-grow: 1;
     margin-left: 20px;
@@ -112,6 +113,9 @@ button.accept-policy {
 
 .top-right-interactions {
     display: flex;
+    border-left: 2px solid #25b623;
+    padding-left: 10px;
+    height: 70%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
