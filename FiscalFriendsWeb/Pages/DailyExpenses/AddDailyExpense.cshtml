@@ -13,7 +13,7 @@
         <h1>New Expense Form</h1>
         <!-- Date Purchased Label -->
         <label asp-for="newDailyExpense.date" class="form-label">Date Purchased:</label>
-        <input asp-for="newDailyExpense.date" type="date" class="form-control" placeholder="transaction date" />
+        <input asp-for="newDailyExpense.date" type="datetime-local" class="form-control" placeholder="Date Purchased"/>
         <span asp-validation-for="newDailyExpense.date" class="text-danger"></span>
         <!-- Daily Expenses Label -->
         <label asp-for="newDailyExpense.Category">Category:</label>
