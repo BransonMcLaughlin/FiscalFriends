@@ -36,7 +36,7 @@ namespace FiscalFriendsWeb.Pages.UserModel
         // Password
         [Required(ErrorMessage = "A Password is required.")]
         [MinLength(10, ErrorMessage = "Minimum length of 10 characters is required")]
-        
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$", ErrorMessage = "Password Requirements Not Met! You must have at least 1 number, 1 uppercase letter, and one lowercase number.")]
         [Display(Name = "Password: ")]
         public string Password { get; set; }
 
