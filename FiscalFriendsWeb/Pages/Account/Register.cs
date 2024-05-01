@@ -3,12 +3,13 @@ using FiscalFriendsWeb.Pages.UserModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
+using System.ComponentModel;
 
 namespace FiscalFriendsWeb.Pages.Account
 {
+    [BindProperties]
     public class Register : PageModel
     {
-        [BindProperty]
         public User newUser { get; set; }
 
         public void OnGet()
@@ -25,7 +26,7 @@ namespace FiscalFriendsWeb.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError("RegisterError", "The Email address already exists! Try a different one.");
+                    ModelState.AddModelError("newUser.Email", "This Email address is already in use! Try a different one.");
                     return Page();
                 }
             }
