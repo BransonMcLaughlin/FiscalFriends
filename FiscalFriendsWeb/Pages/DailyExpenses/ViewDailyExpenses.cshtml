@@ -36,7 +36,7 @@
                         <input type="text" readonly class="form-control" value="@DailyExpense.paymentMethod" />
                         <!-- Amount -->
                         <label class="form-label" asp-for="@DailyExpense.amount">Amount:</label>
-                        <input type="text" readonly class="form-control" value="@DailyExpense.amount" />
+                <input type="text" readonly class="form-control" value="@DailyExpense.amount.ToString("c")" />
                         <!-- Description -->
                         <label class="form-label" asp-for="@DailyExpense.description">Description:</label>
                         <input type="text" readonly class="form-control" value="@DailyExpense.description" />
