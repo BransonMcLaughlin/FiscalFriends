@@ -23,7 +23,7 @@ namespace FiscalFriendsWeb.Pages.Account
             string email = HttpContext.User.FindFirstValue(ClaimValueTypes.Email);
             using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnectionString()))
             {
-                string cmdText = "SELECT FirstName, LastName, Email, Username, LastLoggedIn FROM [USER] WHERE Email=@email";
+                string cmdText = "SELECT FirstName, LastName, Email, Username, LastLoggedIn, PersonID FROM [USER] WHERE Email=@email";
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
                 cmd.Parameters.AddWithValue("@email", email);
                 conn.Open();
@@ -32,8 +32,9 @@ namespace FiscalFriendsWeb.Pages.Account
                     reader.Read();
                     UserProfile.FirstName = reader.GetString(0);
                     UserProfile.LastName = reader.GetString(1);
-                    UserProfile.UserName = reader.GetString(3);
                     UserProfile.Email = reader.GetString(2);
+                    UserProfile.UserName = reader.GetString(3);
+                    UserProfile.PersonID = reader.GetInt32(5);
                     //UserProfile.LastLoggedIn = reader.GetDateTime(4);
                 }
             }

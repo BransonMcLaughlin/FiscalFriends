@@ -19,9 +19,7 @@
         <label>Username:        @Model.UserProfile.UserName</label>
         <label>Email:       @Model.UserProfile.Email</label>
         </div>
-        <!-- 
-        <a asp-page="EditDailyExpense" asp-route-id="" class="btn btn-primary">Edit</a>
-        -->
+            <a asp-page="EditProfile" asp-route-id="@Model.UserProfile.PersonID" class="btn btn-primary">Edit</a>
     </div>
     </div>
 </div>

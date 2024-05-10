@@ -7,7 +7,7 @@ namespace FiscalFriendsWeb.Pages.ProfileModel
     {
         
         // need to create an instance of class Profile here !!!!!!
-        public Profile UserProfile { get; set; }
+        //public Profile UserProfile { get; set; }
 
         // First Name
         [Required(ErrorMessage = "A First Name is required.")]
@@ -26,7 +26,11 @@ namespace FiscalFriendsWeb.Pages.ProfileModel
 
         // Phone Number
 
-        public int? PhoneNumber { get; set; }
+        public String PhoneNumber { get; set; }
+
+        // Phone Number
+
+        public int? PersonID { get; set; }
 
         // UserName
         [Required(ErrorMessage = "A Username is required.")]
@@ -46,10 +50,12 @@ namespace FiscalFriendsWeb.Pages.ProfileModel
 
         // public string ProfilePicture { get; set; }
 
+        /*
         // Preferred Language
         [Required(ErrorMessage = "A Preferred Language is required.")]
         [Display(Name = "Preferred Language: ")]
         public string PreferredLanguage { get; set; }
+        */
 
         // Timezone
 

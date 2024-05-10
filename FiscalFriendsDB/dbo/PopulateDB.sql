@@ -11,21 +11,21 @@ Post-Deployment Script Template
 */
 SET IDENTITY_INSERT [dbo].[ExpenseCategories] ON 
 GO
-INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (1, N'Fast Food                                                                                           ')
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (1, N'Fast Food')
 GO
-INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (2, N'Groceries                                                                                           ')
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (2, N'Groceries')
 GO
-INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (3, N'Housing                                                                                             ')
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (3, N'Housing')
 GO
-INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (4, N'Healthcare                                                                                          ')
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (4, N'Healthcare')
 GO
-INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (5, N'Utilities                                                                                           ')
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (5, N'Utilities')
 GO
-INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (6, N'Entertainment                                                                                       ')
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (6, N'Entertainment')
 GO
-INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (7, N'Education                                                                                           ')
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (7, N'Education')
 GO
-INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (8, N'Miscellaneous                                                                                       ')
+INSERT [dbo].[ExpenseCategories] ([CategoryId], [CategoryDescription]) VALUES (8, N'Miscellaneous')
 GO
 SET IDENTITY_INSERT [dbo].[ExpenseCategories] OFF
 GO
