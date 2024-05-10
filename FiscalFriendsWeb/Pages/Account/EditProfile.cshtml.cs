@@ -40,7 +40,7 @@ namespace FiscalFriendsWeb.Pages.Account
                         conn.Open();
                         //4. execute the command
                         cmd.ExecuteNonQuery();
-                        return RedirectToPage("Profile");
+                        return RedirectToPage("Logout");
                     }
                 }
                 else
