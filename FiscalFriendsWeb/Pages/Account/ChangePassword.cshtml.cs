@@ -1,5 +1,6 @@
 using FiscalFriendsBusiness;
 using FiscalFriendsWeb.Pages.ProfileModel;
+using FiscalFriendsWeb.Pages.UserModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -15,7 +16,7 @@ namespace FiscalFriendsWeb.Pages.Account
 
     {
 
-        public Profile Person { get; set; } = new Profile();
+        public User Person { get; set; } = new User();
 
         public void OnGet(int id)
         {

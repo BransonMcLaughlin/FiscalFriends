@@ -51,7 +51,7 @@ namespace FiscalFriendsWeb.Pages.UserModel
         // Preferred Language
         [Required(ErrorMessage = "A Preferred Language is required.")]
         [Display(Name = "Preferred Language: ")]
-        public string PreferredLanguage { get; set; }
+        //public string PreferredLanguage { get; set; }
 
         // Timezone
        
