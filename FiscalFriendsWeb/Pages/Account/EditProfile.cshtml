@@ -4,48 +4,37 @@
     Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthentication" : "_Layout";
 }
 
-<link rel="stylesheet" href="~/css/RegisterStyleSheet.css" />
+<link rel="stylesheet" href="~/css/editProfileStyleSheet.css" />
 
-<div class="ProfileContainer">
-    <form method="post" class="EditProfileBox">
-
-        <div class="frmGroup">
-            <!-- First Name Label -->
-            <label asp-for="Person.FirstName" class="form-label"></label>
-            <input asp-for="Person.FirstName" type="text" class="form-control" placeholder="first name" />
+<div class="profileContainer">
+    <div class="profileHeader">
+        <h1>Edit Profile</h1>
+    </div>
+    <form method="post" class="profileContent">
+        <div class="profilePicture"></div>
+        <div class="profileInfo">
+            <label asp-for="Person.FirstName" class="form-label">First Name:</label>
+            <input asp-for="Person.FirstName" type="text" class="form-control" placeholder="First Name" />
             <span asp-validation-for="Person.FirstName" class="text-danger"></span>
 
-            <!-- Last Name Label -->
-            <label asp-for="Person.LastName" class="form-label"></label>
-            <input asp-for="Person.LastName" type="text" class="form-control" placeholder="last name" />
+            <label asp-for="Person.LastName" class="form-label">Last Name:</label>
+            <input asp-for="Person.LastName" type="text" class="form-control" placeholder="Last Name" />
             <span asp-validation-for="Person.LastName" class="text-danger"></span>
-            <!-- Email Label -->
-            <label asp-for="Person.Email" class="form-label"></label>
-            <input asp-for="Person.Email" type="text" class="form-control" placeholder="email" />
+
+            <label asp-for="Person.Email" class="form-label">Email:</label>
+            <input asp-for="Person.Email" type="text" class="form-control" placeholder="Email" />
             <span asp-validation-for="Person.Email" class="text-danger"></span>
-            <!-- PhoneNumber Label -->
-            <label asp-for="Person.PhoneNumber" class="form-label"> Phone Number:</label>
-            <input asp-for="Person.PhoneNumber" type="text" class="form-control" placeholder="phonenumber" />
-            <span asp-validation-for="Person.PhoneNumber" class="text-danger"></span>
 
-            <!-- UserName Label -->
-
-            <label asp-for="Person.UserName" class="form-label"></label>
-            <input asp-for="Person.UserName" type="text" class="form-control" placeholder="username" />
+            <label asp-for="Person.UserName" class="form-label">Username:</label>
+            <input asp-for="Person.UserName" type="text" class="form-control" placeholder="Username" />
             <span asp-validation-for="Person.UserName" class="text-danger"></span>
 
-            <!-- Hidden placeholder Password so the modelState isValid-->
-            <input asp-for="Person.Password" type="password" class="form-control" placeholder="New password" hidden value="ModelStateInvalid1984" />
-
-            <!-- Birthday Label-->
-            <label asp-for="Person.Birthday" class="form-label"></label>
-            <input asp-for="Person.Birthday" type="date" class="form-control" placeholder="date of birth" />
+            <label asp-for="Person.Birthday" class="form-label">Birthday:</label>
+            <input asp-for="Person.Birthday" type="date" class="form-control" placeholder="Date of Birth" />
             <span asp-validation-for="Person.Birthday" class="text-danger"></span>
-
-            <br />
-            <br />
-            <!-- Register Button-->
-        <div class="frmGroup">
-                <button id="btnEditProfile" class="btn btn-primary" onclick="return confirm('Are you sure you want to Change the Account Information? This process will sign you out!');">Update Profile</button>
+        </div>
+        <div class="form-controls">
+            <button id="btnEditProfile" class="btn btn-primary" onclick="return confirm('Are you sure you want to Change the Account Information? This process will sign you out!');">Update Profile</button>
+        </div>
     </form>
 </div>

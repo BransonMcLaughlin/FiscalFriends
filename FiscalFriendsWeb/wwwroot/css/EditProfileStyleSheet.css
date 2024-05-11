@@ -1,0 +1,91 @@
+﻿/* 
+    Profile Style Sheet
+*/
+
+.profileContainer {
+    /* <a href="https://www.freepik.com/free-photo/top-view-finance-business-elements_11621172.htm#query=finance%20background&position=3&from_view=keyword&track=ais&uuid=1c3aa48c-706c-4da8-8c34-0a162cd952ae">Image by freepik</a>; */
+    background-image: url('../css/profileBackgroundImage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 1%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.profileContent {
+    flex-direction: column;
+    gap: 5px;
+    width: 24vw;
+    height: auto;
+    padding: 10px;
+    animation: blueAndGreen-animation 6s linear infinite;
+    border: 2.5px solid;
+    background-color: lightblue;
+}
+
+.profileInfo input[type="text"], .profileInfo input[type="date"], .profileInfo input[type="email"] {
+    width: 100%; 
+    padding: 8px; 
+    margin: 5px 0; 
+    border: 1px solid #ccc; 
+}
+
+.profileInfo label {
+    font-weight: bold; 
+    margin-bottom: 1px; 
+    display: block; 
+}
+
+.profileHeader {
+    width: 100%;
+    text-align: center;
+}
+
+
+.btn-primary {
+    width: 100%; 
+    padding: 10px; 
+    margin-top: 20px; 
+}
+
+
+@keyframes blueAndGreen-animation {
+    0% {
+        border-color: lightgreen;
+    }
+
+    25% {
+        border-color: green;
+    }
+
+    50% {
+        border-color: lightblue;
+    }
+
+    75% {
+        border-color: blue;
+    }
+
+    100% {
+        border-color: lightgreen;
+    }
+}
+
+.profileHeader h1 {
+    margin-bottom: 10px; 
+}
+
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
