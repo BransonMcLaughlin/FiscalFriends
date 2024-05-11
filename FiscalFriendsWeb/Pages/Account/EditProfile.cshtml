@@ -32,6 +32,13 @@
             <label asp-for="Person.Birthday" class="form-label">Birthday:</label>
             <input asp-for="Person.Birthday" type="date" class="form-control" placeholder="Date of Birth" />
             <span asp-validation-for="Person.Birthday" class="text-danger"></span>
+
+            <label asp-for="Person.PhoneNumber" class="form-label">PhoneNumber:</label>
+            <input asp-for="Person.PhoneNumber" type="text" class="form-control" placeholder="Phonenumber" />
+            <span asp-validation-for="Person.PhoneNumber" class="text-danger"></span>
+
+            <!-- Hidden placeholder Password so the modelState isValid-->
+            <input asp-for="Person.Password" type="password" class="form-control" placeholder="New password" hidden value="ModelStateInvalid1984" />
         </div>
         <div class="form-controls">
             <button id="btnEditProfile" class="btn btn-primary" onclick="return confirm('Are you sure you want to Change the Account Information? This process will sign you out!');">Update Profile</button>
